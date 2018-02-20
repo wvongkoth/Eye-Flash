@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
 
-const Footer = () =>
+const Footer = () => (
 	<footer className="page-footer">
 	  <div className="container">
 	    <div className="row">
@@ -27,5 +27,6 @@ const Footer = () =>
 	    </div>
 	  </div>
 	</footer>
+);
 
 export default Footer;
