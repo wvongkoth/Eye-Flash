@@ -4,18 +4,20 @@ import "./MainNav.css";
 const MainNav = props => (
 	<div>
 		<ul id="dropdown1" class="dropdown-content">
-		  <li><a href="#!">one</a></li>
+		  <li><a href="#!">account</a></li>
 		  <li><a href="#!">two</a></li>
 		  <li class="divider"></li>
 		  <li><a href="#!">three</a></li>
 		</ul>
-		<nav>
+		<nav class="mainNavBar">
 		  <div class="nav-wrapper">
-		    <a href="#!" class="brand-logo">Logo</a>
-		    <ul class="right hide-on-med-and-down">
-		      <li><a href="sass.html">Sass</a></li>
-		      <li><a href="badges.html">Components</a></li>
-		      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+		    <div id="logoImage" class="brand-logo"><a href="#!"></a></div>
+		    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+		    <ul class="hide-on-med-and-down mainNavBarList">
+		      <li class="listLeft"><a href=""><i class="material-icons left">search</i>Browse</a></li>
+		      <li class="listLeft"><a href=""><i class="material-icons left">view_module</i>My Sets</a></li>
+		      <li class="listRight"><a class="dropdown-button" href="#!" data-activates="dropdown1">Other Settings<i class="material-icons right">arrow_drop_down</i></a></li>
+		      <li class="listRight">Main Language: <span id="mainLanguage">English</span></li>
 		    </ul>
 		  </div>
 		</nav>
