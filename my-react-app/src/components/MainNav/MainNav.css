@@ -1,0 +1,41 @@
+/*main navbar*/
+.mainNavBar {
+	background-color: #3A3C3D;
+	/*so logo is not on the edge*/
+	padding-left: 20px;
+	height: 72px;
+}
+
+#logoImage {
+	float: left;
+	margin: 5px;
+	width: 200px;
+	height: 72px;
+	background-image: url("./logo.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+/*the unordered list*/
+.mainNavBarList {
+	/*leave room for the logo*/
+	padding-left: 250px!important;
+}
+
+/*more space between list items*/
+li {
+	padding: 5px 0px 0px 20px!important;
+}
+
+/*put two of the list items on the right side*/
+.listRight {
+	float: right;
+}
+
+/*different style for the main language*/
+#mainLanguage {
+	color: #3A3C3D;
+	background-color: white;
+	padding: 2px 5px 2px 5px;
+	font-style: bold;
+}
