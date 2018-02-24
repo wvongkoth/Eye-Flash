@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Card from "../../components/Card";
+import JumboCard from "../../components/JumboCard";
 import Form from "../../components/Form";
 
 const Home = () =>
 	<div>
-		<Card />
+		<JumboCard />
 		<Form />
 	</div>
 
