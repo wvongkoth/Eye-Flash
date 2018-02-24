@@ -94,7 +94,7 @@ app.get('/api/makeDeck/:user', function (req, res, next) {
     });
 });
 
-app.get('/api/newCard/:front/:back/:deck', function (req, res) {
+app.get('/api/newCard/:front/:back/', function (req, res) {
     FlashCard.create({ front: req.params.front, back: req.params.back });
     FlashCard.find({}, function (err, doc) {
         if (err) {
@@ -103,7 +103,9 @@ app.get('/api/newCard/:front/:back/:deck', function (req, res) {
             res.json(doc);
         }
     });
-})
+});
+
+
 
 //app.use('/', flashcardsHTML.router);
 //app.use('/api', flashcardsAPI.router);

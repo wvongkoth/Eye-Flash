@@ -2,22 +2,40 @@ const mongoose = require('mongoose');
 
 var Deck = require('./deck.js');
 var FlashCard = require('./flashCard.js');
-var CardSet = require('./cardSet.js')
+var CardSet = require('./cardSet.js');
 
-FlashCard.find({}).sort('-date').exec(function (err, docs) {
-    for (i = 0; i < docs.;i++) {
+//requires post
+function AddNewDeck() {
+    Deck.create({ user_id: "filler", deckName: "filer" }, function (err, doc) {
+        if (err) console.log(err)
+        FlashCard.create({ front: "filler", back: "filler" }, function (err, card) {
+            doc.deckCards.push(card);
+            mod.save();
+        });
+    });
+};
 
-    }
-});
-Deck.sort({ field: 'asc', test: -1 });
-Deck.find().sort('_id', 1).limit(5).select('title  _id').exec(function (e, data) {
-    //handle result
+function addNewCard() {
+    Flashcard.create({ front: "back", back: "front" }, function (err, doc) {
+
+        if (err) console.log(err);
+        Deck.findOne({ _id: "object_id somewhere in url" }, function (err, deck) {
+            if (err) return errorHandle(err);
+            deck.deckCards.push(doc);
+            deck.save();
+        });
+    });
+};
+
+function updateCard() {
+    FlashCard.find({ _id: "object_id somewhere in url" }, function (err, card) {
+        if (err) console.log(err);
+        card.front = "user input"
+        card.back = "user input";
+        card.save();
+    });
 }
-});
 
-Deck.find(function (err, deck) {
-    if (err) return console.error(err);
-    console.log(kittens);
-})
-//working? sort id
-FlashCard.find({}).sort("-_id");
+function errorHandle(err) {
+    console.log("oops! something went wrong! \n error: " + err);
+}
