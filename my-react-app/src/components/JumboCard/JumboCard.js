@@ -1,10 +1,10 @@
 import React from "react";
-import "./Card.css";
+import "./JumboCard.css";
 
-const Card = props => (
+const JumboCard = props => (
     <div class="flashCard">
       <p>flashcard</p>
     </div>
 );
 
-export default Card;
+export default JumboCard;

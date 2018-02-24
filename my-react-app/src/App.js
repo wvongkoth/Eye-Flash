@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import MainNav from "./components/MainNav";
-import Card from "./components/Card";
+import JumboCard from "./components/JumboCard";
 
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div>
         <MainNav />
-        <Card />
+        <JumboCard />
       </div>
     );
   }
