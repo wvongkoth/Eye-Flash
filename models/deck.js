@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var deckSchema = new Schema({
+var DeckSchema = new Schema({
   deckName: {
     type: String,
     required:false
@@ -10,11 +10,11 @@ var deckSchema = new Schema({
       type: String,
       required: false
   },
-  cardNum: {
-      type: Number,
+  deckCards: {
+      type: [],
       required:false
   }
 });
 
-var deck = mongoose.model('Deck', deckSchema);
-module.exports = deck;
+var Deck = mongoose.model('Deck', DeckSchema);
+module.exports = Deck;

@@ -18,6 +18,9 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 mongoose.connect('mongodb://localhost/tacobell');
+
+
+
 var db = mongoose.connection;
 
 db.on('error', function (err) {
@@ -31,6 +34,7 @@ var Deck = require('./models/deck.js');
 var FlashCard = require('./models/flashCard.js');
 var CardSet = require('./models/cardSet.js')
 
+
 app.get('/cardSet', function (req, res) {
     CardSet.find({}, function (err, doc) {
         if (err) {
@@ -42,13 +46,23 @@ app.get('/cardSet', function (req, res) {
 });
 
 app.get('/deck', function (req, res) {
-    Deck.find({}, function (err, doc) {
-        if (err) {
+  
+    Deck.find({})
+        .then(function (results) {
+            console.log(results)
+            res.json(results)
+        })
+        .catch(function(err) {
+            console.log(err);
+        })
+       /*  if (err) {
             console.log(err);
         } else {
             res.json(doc);
+            console.log(doc)
         }
-    });
+    }); */
+
 });
 
 app.get('/flashCard', function (req, res) {
@@ -60,18 +74,36 @@ app.get('/flashCard', function (req, res) {
         }
     });
 });
-app.post('/cardSet', function (req, res, next) {
-    var post = new CardSet({
-        card_id: "filler",
-        set_id: "dillery"
-    }).done(function (res) {
-        console.log(CardSet.cardSetSchema.card_id)
-    })
-    post.save(function (err, post) {
-        if (err) { return next(err) }
-        res.json(201, post)
-   })
+
+app.get('/api/sortDeck/:id', function (req, res) {
+    Deck.find({ deckName: req.params.id }).sort("-_id");
+    console.log(Deck)
 });
+
+app.get('/api/makeDeck/:user', function (req, res, next) {
+    FlashCard.find({}, function (err, doc) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(doc);
+            Deck.findOne({ user_id: req.params.user }, function (err, mod) {
+                mod.deckCards = doc;
+                mod.save();
+            });
+        }
+    });
+});
+
+app.get('/api/newCard/:front/:back/:deck', function (req, res) {
+    FlashCard.create({ front: req.params.front, back: req.params.back });
+    FlashCard.find({}, function (err, doc) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(doc);
+        }
+    });
+})
 
 //app.use('/', flashcardsHTML.router);
 //app.use('/api', flashcardsAPI.router);
