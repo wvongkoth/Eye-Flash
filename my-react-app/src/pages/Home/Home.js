@@ -4,6 +4,7 @@ import Form from "../../components/Form";
 
 const Home = () =>
 	<div>
+		<Form />
 		<JumboCard />
 	</div>
 
