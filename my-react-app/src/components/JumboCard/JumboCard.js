@@ -3,7 +3,7 @@ import ReactCardFlip from 'react-card-flip';
 import "./JumboCard.css";
 import Form from '../Form';
 
-class JumboCard extends React.Component {
+class JumboCard extends Component {
   constructor() {
     super();
     this.state = {
