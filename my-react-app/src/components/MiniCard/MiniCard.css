@@ -1,8 +1,9 @@
-.flashCard {
+.miniCard {
 	background-color: #4A5FAB;
 	color: white;
 	display: inline-block;
 	vertical-align: top;
 	width: 20%;
-	height: 100px;
+	height: 200px;
+	margin: 70px 1.25% 30px 1.25%;
 }
