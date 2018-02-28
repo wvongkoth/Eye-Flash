@@ -15,7 +15,7 @@ const MainNav = props => (
 		    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		    <ul class="hide-on-med-and-down mainNavBarList">
 		      <li class="listLeft"><a href=""><i class="material-icons left">search</i>Browse</a></li>
-		      <li class="listLeft"><a href=""><i class="material-icons left">view_module</i>My Sets</a></li>
+		      <li class="listLeft"><a href=""><i class="material-icons left">view_module</i>My Decks</a></li>
 		      <li class="listRight"><a class="dropdown-button" href="#!" data-activates="dropdown1">Other Settings<i class="material-icons right">arrow_drop_down</i></a></li>
 		      <li class="listRight">Main Language: <span id="mainLanguage">English</span></li>
 		    </ul>

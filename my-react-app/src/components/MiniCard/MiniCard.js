@@ -2,7 +2,7 @@ import React from "react";
 import "./MiniCard.css";
 
 const MiniCard = props => (
-    <div class="flashCard">
+    <div class="miniCard">
       <p>minicard</p>
     </div>
 );
