@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import ReactCardFlip from 'react-card-flip';
 import "./JumboCard.css";
+import Form from '../Form';
 
-class JumboCard extends Component {
+class JumboCard extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -20,17 +21,17 @@ class JumboCard extends Component {
     return (
       <ReactCardFlip isFlipped={this.state.isFlipped}>
         <YOUR_FRONT_CCOMPONENT key="front">
-          This is the front of the card.
+          <Form />
           <button onClick={this.handleClick}>Click to flip</button>
         </FrontComponent>
  
         <YOUR_BACK_COMPONENT key="back">
-          This is the back of the card.
+          <Form />
           <button onClick={this.handleClick}>Click to flip</button>
         </BackComponent>
       </ReactCardFlip>
     )
   }
-}
+};
 
 export default JumboCard;
