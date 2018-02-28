@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactCardFlip from 'react-card-flip';
 import "./JumboCard.css";
 import Form from '../Form';
-
+/*
 class JumboCard extends Component {
   constructor() {
     super();
@@ -32,6 +32,12 @@ class JumboCard extends Component {
       </ReactCardFlip>
     )
   }
-};
+}; */
+
+const JumboCard = props => (
+    <div class="flashCard">
+      <p>flashcard</p>
+    </div>
+);
 
 export default JumboCard;
