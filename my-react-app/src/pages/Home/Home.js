@@ -5,7 +5,6 @@ import Form from "../../components/Form";
 const Home = () =>
 	<div>
 		<JumboCard />
-		<Form />
 	</div>
 
 
