@@ -6,17 +6,20 @@ import MainNav from "./components/MainNav";
 
 import Home from "./pages/Home";
 import UserSignUp from "./pages/UserSignUp";
+import SingleCardView from "./pages/SingleCardView";
+import CreatePage from "./pages/CreatePage";
+
 
 const App = () =>
   <Router>
     <div>
       <MainNav />
-      	<div className="container">
-	      <Switch>
-	        <Route exact path="/" component={Home} />
-	        <Route exact path="/signup" component={UserSignUp} />
-	      </Switch>
-	     </div>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/signup" component={UserSignUp} />
+        <Route exact path="/singlecard" component={SingleCardView} />
+        <Route exact path="/create" component={CreatePage} />
+      </Switch>
     </div>
   </Router>;
 
