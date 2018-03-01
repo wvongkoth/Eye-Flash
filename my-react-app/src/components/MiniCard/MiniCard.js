@@ -3,7 +3,7 @@ import "./MiniCard.css";
 
 const MiniCard = props => (
     <div className="miniCard">
-      <p className="centerTextMC">minicard I like Taco Bell. {props.fontText}</p>
+      <p className="centerTextMC" id={props.id}>{props.word}</p>
     </div>
 );
 
