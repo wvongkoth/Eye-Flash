@@ -5,9 +5,16 @@ import JumboCard from "../../components/JumboCard";
 import WordJC from "../../components/WordJC";
 
 class SingleCardView extends Component{
-	// Setting this.state.friends to the friends json array
+	// Setting this.state.array to the array json array
 	state = {
 		array
+	};
+
+	clickWord = id => {
+		// Filter this.state.array for array with an id not equal to the id being removed
+	    const array = this.state.array.filter(array => array.id !== id);
+	    // Set this.state.array equal to the new array array
+	    this.setState({ array });
 	};
 
 	render() {
@@ -16,6 +23,7 @@ class SingleCardView extends Component{
 				<JumboCard>
 						{this.state.array.map(array => (
 				          <WordJC
+				          	clickWord={this.clickWord}
 				            id={array.id}
 				            word={array.word}
 				          />
