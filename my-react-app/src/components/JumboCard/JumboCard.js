@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ReactCardFlip from 'react-card-flip';
 import "./JumboCard.css";
 import Form from '../Form';
+import WordJC from '../WordJC';
+
 /*
 class JumboCard extends Component {
   constructor() {
@@ -35,8 +37,10 @@ class JumboCard extends Component {
 }; */
 
 const JumboCard = props => (
-    <div class="jumboCard">
-      <p>flashcard</p>
+    <div className="jumboCard">
+      <p className="centerTextJC">
+        {props.children}
+      </p>
     </div>
 );
 
