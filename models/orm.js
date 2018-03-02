@@ -2,69 +2,99 @@ const mongoose = require('mongoose');
 
 var Deck = require('./deck.js');
 var FlashCard = require('./flashCard.js');
-var CardSet = require('./cardSet.js');
 
-//requires post also makes a new deck and adds an first card to it.
-function AddNewDeck() {
-    Deck.create({ user_id: "filler", deckName: "filer" }, function (err, doc) {
-        if (err) HandleError(err)
-        FlashCard.create({ front: "filler", back: "filler" }, function (err, card) {
-            doc.deckCards.push(card);
-            mod.save();
+const flashcardCommands = {
+    addNewDeck: (deck, cardFront, cardBack, cb) => {
+        Deck.create({
+            deckName: deck
+        }, (err, deck) => {
+            if (err) {
+                return cb(err);
+            }
+            FlashCard.create({
+                front: cardFront,
+                back: cardBack
+            }, (err, card) => {
+                if (err) { console.log(err) }
+                card.save();
+                deck.deckCards.push(card);
+                deck.save();
+                cb(undefined, card);
+            });
         });
-    });
+    },
+    addNewCard: (cardFront, cardBack, deckId, cb) => {
+        FlashCard.create({
+            front: cardFront,
+            back: cardBack
+        }, (err, newCard) => {
+            if (err) {
+                return cb(err)
+            }
+            Deck.findById({
+                deckID,
+            }, (err, deck) => {
+                if (err) {
+                    return cb(err);
+                }
+                deck.deckCards.push(newCard);
+                deck.save();
+                cb(undefined, deck);
+            })
+        })
+    },
+    getDecks: (cb) => {
+        Deck.find({
+
+        }, (err, decks) => {
+            if (err) {
+                return cb(err)
+            }
+            cb(undefined, decks)
+        })
+    },
+    getCard: (deckId, currentCardNum, cb) => {
+        Deck.findById(deckId, (err, decks) => {
+            if (err) {
+                return cb(err)
+            }
+            cb(undefined, decks.deckCards[currentCardNum]);
+        });
+    },
+    updateCard: (cardId, newFront, newBack, cb) => {
+        FlashCard.findByIdAndUpdate({
+            cardId
+        }, (err, card) => {
+            if (err) {
+                cb(err);
+            }
+            card.front = newFront,
+                card.back = newBack
+            card.save();
+            cb(undefined, card);
+        });
+    },
+    deleteCard: (cardId, cb) => {
+        FlashCard.findByIdAndRemove(cardId, (err, todo) => {
+            if (err) {
+                return cb(err)
+            }
+            cb(undefined, todo)
+        });
+    },
+    deleteDeck: (deckId, cb) => {
+        Deck.findByIdAndRemove(deckId, (err, todo) => {
+            if (err) {
+                return cb(err)
+            }
+            cb(undefined, todo);
+        });
+    }
 };
 
-//makes a new card and adds it to the deck that is specifed in the url by its object id
-function addNewCard() {
-    Flashcard.create({ front: "back", back: "front" }, function (err, doc) {
 
-        if (err) handleError(err);
-        Deck.findOne({ _id: "object_id somewhere in url" }, function (err, deck) {
-            if (err) return errorHandle(err);
-            deck.deckCards.push(doc);
-            deck.save();
-        });
-    });
+//var flashcardCommands = mongoose.model('Flashcard', cardSchema);
+
+module.exports = {
+    flashcardCommands
 };
-
-//allows for the card to be edited 
-function updateCard() {
-    FlashCard.findByIdAndUpdate({ _id: "object_id somewhere in url" }, function (err, card) {
-        if (err) errorHandle(err);
-        card.front = "user input"
-        card.back = "user input";
-        card.save();
-    });
-}
-
-//the deletes may not work as intended yet still working on the proper syntax should be done by the end on 2/25/2018
-//deletes a selected card based on the object id
-function deleteCard() {
-    //Card id should be the wanted cards id
-    FlashCard.findByIdAndRemove(req.params."card id", (err, todo) => {
-        if (err) return res.status(500).send(err);
-        const response = {
-            message: "card deleted",
-            id: card._id
-        };
-        return res.status(200).send(response);
-    });
-}
-
-function deleteDeck() {
-    //Deck id should be the decks object id 
-    Deck.findByIdAndRemove(req.params."card id", (err, todo) => {
-        if (err) return res.status(500).send(err);
-        const response = {
-            message: "deck deleted",
-            id: deck._id
-        };
-        return res.status(200).send(response);
-    });
-}
-
-//simple error handleing will update with actual hanldeing later
-function errorHandle(err) {
-    console.log("oops! something went wrong! \n error: " + err);
-}

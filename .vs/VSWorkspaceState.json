@@ -3,12 +3,9 @@
     "",
     "\\final-project",
     "\\final-project\\public",
-    "\\final-project\\src",
-    "\\final-project\\src\\components",
-    "\\final-project\\src\\pages",
-    "\\final-project\\src\\pages\\Home",
-    "\\models"
+    "\\models",
+    "\\my-react-app"
   ],
-  "SelectedNode": "\\models\\ormtesting.js",
+  "SelectedNode": "\\my-react-app\\src",
   "PreviewInSolutionExplorer": false
 }
