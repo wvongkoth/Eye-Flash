@@ -35,7 +35,7 @@ class JumboCard extends Component {
 }; */
 
 const JumboCard = props => (
-    <div class="flashCard">
+    <div class="jumboCard">
       <p>flashcard</p>
     </div>
 );
