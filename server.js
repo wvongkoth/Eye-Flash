@@ -18,7 +18,8 @@ var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static('public'));
+app.use('/static', express.static('my-react-app/build/static'))
 
 app.use('/api', flashcardAPI.router);
 app.use('/', flashcardHTML.router)
