@@ -1,0 +1,15 @@
+.miniCard {
+	background-color: #4A5FAB;
+	color: white;
+	display: inline-table;
+	vertical-align: top;
+	width: 20vw;
+	height: 15vw;
+	margin: 30px 1.25vw 5px 1.25vw;
+}
+
+p.centerTextMC {
+	text-align:center; 
+	vertical-align: middle;
+	display: table-cell;  
+}
