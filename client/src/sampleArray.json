@@ -1,0 +1,150 @@
+[
+    {
+        "deckId": 1,
+        "initialLanguage": "English",
+        "translatedLanguage": "Spanish",
+        "cards": [
+            {
+                "cardId": 1,
+                "phraseIL": "I like Taco Bell",
+                "phraseTL": "Yo quiero Taco Bell",
+                "wordsIL": [
+                    {
+                        "word": "I",
+                        "clickable": true,
+                        "picOptions": {
+                            "opt1": "png1",
+                            "opt2": "png2",
+                            "opt3": "png3",
+                            "opt4": "png4",
+                            "opt5": "png5",
+                            "opt6": "png6",
+                            "opt7": "png7",
+                            "opt8": "png8",
+                            "opt9": "png9"
+                        },
+                        "chosenPicture": null
+                    },
+                    {
+                        "word": "Like",
+                        "clickable": true,
+                        "picOptions": {
+                            "opt1": "png1",
+                            "opt2": "png2",
+                            "opt3": "png3",
+                            "opt4": "png4",
+                            "opt5": "png5",
+                            "opt6": "png6",
+                            "opt7": "png7",
+                            "opt8": "png8",
+                            "opt9": "png9",
+                        },
+                        "chosenPicture": null
+                    },
+                    {
+                        "word": "Taco",
+                        "clickable": true,
+                        "picOptions": {
+                            "opt1": "png1",
+                            "opt2": "png2",
+                            "opt3": "png3",
+                            "opt4": "png4",
+                            "opt5": "png5",
+                            "opt6": "png6",
+                            "opt7": "png7",
+                            "opt8": "png8",
+                            "opt9": "png9",
+                        },
+                        "chosenPicture": null
+                    },
+                    {
+                        "word": "Bell",
+                        "clickable": true,
+                        "picOptions": {
+                            "opt1": "png1",
+                            "opt2": "png2",
+                            "opt3": "png3",
+                            "opt4": "png4",
+                            "opt5": "png5",
+                            "opt6": "png6",
+                            "opt7": "png7",
+                            "opt8": "png8",
+                            "opt9": "png9",
+                        },
+                        "chosenPicture": null
+                    }
+                ]
+      {
+                    "cardId": 2,
+                    "phraseIL": "The goat eats cheese.",
+                    "phraseTL": "La cabra come queso",
+                    "wordsIL": [
+                        {
+                            "word": "The",
+                            "clickable": false,
+                            // will the following be null or not printed?
+                            // "picOptions": {
+                            //   "opt1": "png1",
+                            //   "opt2": "png2",
+                            //   "opt3": "png3",
+                            //   "opt4": "png4",
+                            //   "opt5": "png5",
+                            //   "opt6": "png6",
+                            //   "opt7": "png7",
+                            //   "opt8": "png8",
+                            //   "opt9": "png9"
+                            // },
+                            "chosenPicture": null
+                        },
+                        {
+                            "word": "goat",
+                            "clickable": true,
+                            "picOptions": {
+                                "opt1": "png1",
+                                "opt2": "png2",
+                                "opt3": "png3",
+                                "opt4": "png4",
+                                "opt5": "png5",
+                                "opt6": "png6",
+                                "opt7": "png7",
+                                "opt8": "png8",
+                                "opt9": "png9"
+                            },
+                            "chosenPicture": null
+                        },
+                        {
+                            "word": "eats",
+                            "clickable": true,
+                            "picOptions": {
+                                "opt1": "png1",
+                                "opt2": "png2",
+                                "opt3": "png3",
+                                "opt4": "png4",
+                                "opt5": "png5",
+                                "opt6": "png6",
+                                "opt7": "png7",
+                                "opt8": "png8",
+                                "opt9": "png9"
+                            },
+                            "chosenPicture": null
+                        },
+                        {
+                            "word": "cheese",
+                            "clickable": true,
+                            "picOptions": {
+                                "opt1": "png1",
+                                "opt2": "png2",
+                                "opt3": "png3",
+                                "opt4": "png4",
+                                "opt5": "png5",
+                                "opt6": "png6",
+                                "opt7": "png7",
+                                "opt8": "png8",
+                                "opt9": "png9"
+                            },
+                            "chosenPicture": null
+                        }
+                    ]
+                }
+            }
+        ]
