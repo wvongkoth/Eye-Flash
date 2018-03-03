@@ -64,10 +64,10 @@ class Home extends Component {
 						word={decks.deckName}
 						id={decks.id}
 					/>
-				))};
+				))}
 			</div>
-		);
-	};
+		)
+	}
 }
 
 
