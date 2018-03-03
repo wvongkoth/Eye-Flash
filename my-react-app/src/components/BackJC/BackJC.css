@@ -1,0 +1,6 @@
+p.centerTextJC {
+  text-align:center; 
+  vertical-align: middle;
+  display: table-cell;
+  font-size: 60px;
+}
