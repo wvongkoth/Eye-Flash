@@ -76,7 +76,9 @@ router.delete('/deleteDeck', (req, res) => {
 });
 
 router.get('/mylesSucks', (req, res) => {
-    res.send('I agree!');
+    res.send({
+        "response": "I agree!"
+    });
 });
 
 
