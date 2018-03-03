@@ -9,7 +9,6 @@ import UserSignUp from "./pages/UserSignUp";
 import SingleCardView from "./pages/SingleCardView";
 import CreatePage from "./pages/CreatePage";
 
-
 const App = () =>
   <Router>
     <div>
@@ -22,6 +21,7 @@ const App = () =>
       </Switch>
     </div>
   </Router>;
+
 
 export default App;
 

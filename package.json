@@ -20,6 +20,5 @@
     "method-override": "^2.3.10",
     "mongoose": "^5.0.7",
     "path": "^0.12.7"
-  },
-  "proxy": "http://localhost:5000"
+  }
 }
