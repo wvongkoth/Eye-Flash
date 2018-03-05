@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactCardFlip from 'react-card-flip';
 import "./JumboCard.css";
 import WordJC from '../WordJC';
+import WordBJC from '../WordBJC';
 import FrontJC from '../FrontJC';
 import BackJC from '../BackJC';
 import array from "../../array.json";
@@ -42,8 +43,7 @@ class JumboCard extends Component {
           <div className="jumboCardFlip" onClick={this.handleClick}>
             <p className="centerTextJC">
               {this.state.words.map((word, i) => (
-                <WordJC
-                  clickWord={this.clickWord}
+                <WordBJC
                   id={i}
                   word={word.bword}
                 />
