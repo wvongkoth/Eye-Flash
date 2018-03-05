@@ -28,43 +28,19 @@ class TableJC extends Component {
         return (
             <span>
                 { secondClick ? 
-                    <img src={this.state.clickedSrc} /> : 
+                    <img className="chosenPic" src={this.state.clickedSrc} /> : 
                         <span>
-                            <table className="threeByThreeIconTable">
-                                <tr>
-                                    <td>
-                                        <img src={this.props.image} onClick={this.clickTable}/>
-                                    </td>
-                                    <td>
-                                        <img src={this.props.image} />
-                                    </td>
-                                    <td>
-                                        <img src={this.props.image} />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src={this.props.image} />
-                                    </td>
-                                    <td>
-                                        <img src={this.props.image} />
-                                    </td>
-                                    <td>
-                                        <img src={this.props.image} />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src={this.props.image} />
-                                    </td>
-                                    <td>
-                                        <img src={this.props.image} />
-                                    </td>
-                                    <td>
-                                        <img src={this.props.image} />
-                                    </td>
-                                </tr>
-                            </table>
+                            <div className="threeByThreeIconGrid">
+                                <img src={this.props.image} onClick={this.clickTable} className="imageInGrid"/>
+                                <img src={this.props.image} className="imageInGrid" />
+                                <img src={this.props.image} className="imageInGrid"/>
+                                <img src={this.props.image} className="imageInGrid"/>
+                                <img src={this.props.image} className="imageInGrid"/>
+                                <img src={this.props.image} className="imageInGrid"/>
+                                <img src={this.props.image} className="imageInGrid"/>
+                                <img src={this.props.image} className="imageInGrid"/>
+                                <img src={this.props.image} className="imageInGrid"/>
+                            </div>
                         </span>
                 }
             </span>

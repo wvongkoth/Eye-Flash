@@ -14,26 +14,6 @@
   height: 100%;
 }
 
-/*.flashcard {
-  height: 300px;
-  width: 500px;
-  border: 2px solid gray;
-  box-shadow: 2px 2px 2px #000;
-}
-
-.front, .back {
-  height: 300px;
-  width: 500px;
-  position: absolute;
-  text-align: center;
-}
-
-.back {
-  transform: rotateX(180deg);
-  -webkit-transform: rotateX(180deg);
-}*/
-
-
 p.centerTextJC {
   text-align:center; 
   vertical-align: middle;
