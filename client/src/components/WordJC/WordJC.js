@@ -11,13 +11,13 @@ class WordJC extends Component {
 		}
 	}
 
-  clickWord=(e)=> {
+    clickWord=(e)=> {
   		e.stopPropagation();
 	    this.setState({ firstClick: true }, function () {
-	      console.log(this.state.firstClick + "console");
-	      },
+	        console.log(this.state.firstClick + "console");
+	        },
 	    );
-	  };
+	};
 
 	render() {
 		const {firstClick} = this.state;

@@ -20,15 +20,3 @@ p.centerTextJC {
   display: table-cell;
   font-size: 60px;
 }
-
-.leftPreviousArrow {
-  font-size: 60px;
-  vertical-align: middle;
-  margin-right: 20px;
-}
-
-.rightPreviousArrow {
-  font-size: 60px;
-  vertical-align: middle;
-  margin-left: 20px;
-}
