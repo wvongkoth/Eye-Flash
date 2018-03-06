@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Component } from "react";
+import ReactCardFlip from 'react-card-flip';
 import "./BackJC.css";
 
 const BackJC = props => (

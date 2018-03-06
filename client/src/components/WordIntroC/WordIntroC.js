@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-import "./WordJC.css";
-import TableJC from '../TableJC';
+import "./WordIntroC.css";
+import TableIntroC from '../TableIntroC';
 
-class WordJC extends Component {
+class WordIntroC extends Component {
 
 	constructor (props) {
 		super(props);
@@ -14,8 +14,8 @@ class WordJC extends Component {
     clickWord=(e)=> {
   		e.stopPropagation();
 	    this.setState({ firstClick: true }, function () {
-	        console.log(this.state.firstClick + "console");
-	        },
+	      console.log(this.state.firstClick + "console");
+	      },
 	    );
 	};
 
@@ -24,7 +24,7 @@ class WordJC extends Component {
 		return (
 			<span>
 				{ firstClick ? 
-					<TableJC image={"https://iconscout.com/iconscout_logo-1024x1024.png"}/> : 
+					<TableIntroC image={"https://iconscout.com/iconscout_logo-1024x1024.png"}/> : 
 					<span className="wordJumboCard" id={this.props.id} onClick={this.clickWord}>{this.props.word}</span>
 				}
 			</span>
@@ -32,4 +32,4 @@ class WordJC extends Component {
 
 };
 
-export default WordJC;
+export default WordIntroC;

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import array from "../../array.json";
 import "./CreatePage.css";
 
 import CreateForm from "../../components/CreateForm";

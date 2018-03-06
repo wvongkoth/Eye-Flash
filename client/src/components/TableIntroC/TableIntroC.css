@@ -1,0 +1,26 @@
+.threeByThreeIconGrid {
+	margin: 10px 10px 10px 10px;
+  	vertical-align: middle;
+  	display: inline-block;
+  	width: 212px;
+  	height: 212px!important;
+  	line-height: 0;
+  	border: 1px dashed black;
+  	filter: invert(80%);
+}
+
+img.imageInGrid {
+	width: 60px;
+	height: 60px;
+	margin: 5px;
+}
+
+img.chosenPic {
+	margin: 10px 10px 10px 10px;
+  	vertical-align: middle;
+  	display: inline-block;
+  	width: 212px;
+  	height: 212px!important;
+  	line-height: 0;
+  	filter: invert(100%);
+}

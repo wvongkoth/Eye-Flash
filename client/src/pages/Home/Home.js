@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import JumboCard from "../../components/JumboCard";
 import MiniCard from "../../components/MiniCard";
-import Form from "../../components/Form";
-import array from "../../array.json";
-import WordJC from "../../components/WordJC";
 
 class Home extends Component {
 	constructor(props) {

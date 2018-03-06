@@ -28,18 +28,18 @@ class TableJC extends Component {
         return (
             <span>
                 { secondClick ? 
-                    <img className="chosenPic" src={this.state.clickedSrc} /> : 
+                    <img alt="chosen option" className="chosenPic" src={this.state.clickedSrc} /> : 
                         <span>
                             <div className="threeByThreeIconGrid">
-                                <img src={this.props.image} onClick={this.clickTable} className="imageInGrid"/>
-                                <img src={this.props.image} className="imageInGrid" />
-                                <img src={this.props.image} className="imageInGrid"/>
-                                <img src={this.props.image} className="imageInGrid"/>
-                                <img src={this.props.image} className="imageInGrid"/>
-                                <img src={this.props.image} className="imageInGrid"/>
-                                <img src={this.props.image} className="imageInGrid"/>
-                                <img src={this.props.image} className="imageInGrid"/>
-                                <img src={this.props.image} className="imageInGrid"/>
+                                <img alt="option 1" src={this.props.image} onClick={this.clickTable} className="imageInGrid"/>
+                                <img alt="option 2" src={this.props.image} className="imageInGrid" />
+                                <img alt="option 3" src={this.props.image} className="imageInGrid"/>
+                                <img alt="option 4" src={this.props.image} className="imageInGrid"/>
+                                <img alt="option 5" src={this.props.image} className="imageInGrid"/>
+                                <img alt="option 6" src={this.props.image} className="imageInGrid"/>
+                                <img alt="option 7" src={this.props.image} className="imageInGrid"/>
+                                <img alt="option 8" src={this.props.image} className="imageInGrid"/>
+                                <img alt="option 9" src={this.props.image} className="imageInGrid"/>
                             </div>
                         </span>
                 }
