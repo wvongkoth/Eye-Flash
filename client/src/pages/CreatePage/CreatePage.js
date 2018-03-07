@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import "./CreatePage.css";
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 export default class CreatePage extends React.Component {
   state = {
@@ -32,6 +34,9 @@ export default class CreatePage extends React.Component {
   }
 
   render() {
+  	const languageOptions = ['English', 'Spanish', 'Chinese', 'Hindi'];
+  	const defaultInitialOption = languageOptions[0];
+  	const defaultTranslatedOption = languageOptions[1];
     return (
 	    <div>
 			<div className="row">
@@ -40,14 +45,14 @@ export default class CreatePage extends React.Component {
 						<div className="card-content">
 							<span className="card-title">Deck Name: </span>
 							<input placeholder="Insert Deck Language" type="text" deckName="deckName" onChange={this.handleDeckChange}/>
-								<p>I am writing in 
-								<span className="chip initialLanguageChip">
-									English
-								</span>
-								. I would like to translate to 
-								</p>
-								<div className="translatedLanguageChipDiv">
-									<div className="chips chips-autocomplete">Insert desired language here</div>
+								<div>
+									I am writing in: 
+									<Dropdown options={languageOptions} onChange={this._onSelect} value={defaultInitialOption} placeholder="Select an option" />
+								</div>
+
+								<div>
+									I would like to translate to: 
+									<Dropdown options={languageOptions} onChange={this._onSelect} value={defaultTranslatedOption} placeholder="Select an option" />
 								</div>
 						</div>
 				</div>
