@@ -6,6 +6,10 @@ var DeckSchema = new Schema({
         type: String,
         required: false
     },
+    transLanguage: {
+        type: String,
+        required: false
+    },
     user_id: {
         type: String,
         required: false

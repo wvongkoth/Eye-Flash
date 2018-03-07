@@ -15,7 +15,7 @@ const flashcardCommands = {
                 front: cardFront,
                 back: cardBack
             }, (err, card) => {
-                if(err){console.log(err)}
+                if (err) { console.log(err) }
                 card.save();
                 deck.deckCards.push(card);
                 deck.save();
@@ -61,15 +61,14 @@ const flashcardCommands = {
             cb(undefined, decks.deckCards[currentCardNum]);
         });
     },
-    updateCard: (cardId, newFront, newBack, cb) => {
+    updateCard: (cardId, selectedImage, cb) => {
         FlashCard.findByIdAndUpdate({
             cardId
         }, (err, card) => {
             if (err) {
                 cb(err);
             }
-            card.front = newFront,
-                card.back = newBack
+            card.image = selectedImage;
             card.save();
             cb(undefined, card);
         });

@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var cardSchema = new Schema({
-    verified: false,
     front: {
         type: String,
         required: false

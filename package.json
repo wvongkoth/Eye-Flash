@@ -19,6 +19,7 @@
     "google-translate-api": "^2.3.0",
     "method-override": "^2.3.10",
     "mongoose": "^5.0.7",
+    "oauth": "^0.9.15",
     "path": "^0.12.7"
   }
 }
