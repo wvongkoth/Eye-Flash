@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 import "./CreateForm.css";
 
 class CreateForm extends Component {
-  constructor(props){
-  super(props)
-  this.state = {
-    cardFront: ''
-    }
+  state = {
+    cardFront: '',
   }
-
 
   handleCardChange = event => {
     this.setState({ cardFront: event.target.value });
@@ -23,7 +19,7 @@ render(){
             <div className="card-content">
               <div className="input-field">
                 <i className="material-icons prefix">g_translate</i>
-                <input id="icon_prefix" type="text" className="validate" cardFront={this.props.cardFront} onChange={this.handleCardChange} />
+                <input id="icon_prefix" type="text" className="validate" cardFront="cardFront" onChange={this.handleCardChange} />
                 <label for="icon_prefix">Enter phrase or short sentence to translate (limit 50 charcters)</label>
               </div>
             </div>
