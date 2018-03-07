@@ -44,6 +44,7 @@ class JumboCard extends Component {
                 <WordJC
                   id={i}
                   word={word.word}
+                  images={word.images}
                 /> 
               ))}
               <i class="material-icons rightPreviousArrow" onClick={this.rightArrowClick}>navigate_next</i>
