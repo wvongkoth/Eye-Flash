@@ -22,16 +22,6 @@ class JumboCard extends Component {
     this.setState({ isFlipped: !this.state.isFlipped });
   }
 
-  rightArrowClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-
-  leftArrowClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-
   render() {
 
     return (
@@ -39,14 +29,12 @@ class JumboCard extends Component {
         <FrontJC key="front">
           <div className="jumboCardFlip" onClick={this.handleClick}>
             <p className="centerTextJC">
-              <i class="material-icons leftPreviousArrow" onClick={this.leftArrowClick}>navigate_before</i>
               {this.state.words.map((word, i) => (
                 <WordJC
                   id={i}
                   word={word.word}
                 /> 
               ))}
-              <i class="material-icons rightPreviousArrow" onClick={this.rightArrowClick}>navigate_next</i>
             </p>
           </div>
         </FrontJC>
