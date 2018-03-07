@@ -30,7 +30,8 @@ router.post('/addNewDeck', (req, res) => {
 
     flashcardCommands.addNewDeck(deckName, cardFront, cardBack, (err, response) => {
         res.json({
-            status: 'Everything is okay! Deck has been added ' + deckName +" "+cardFront +" "+ cardBack
+            status: response._id
+
         });
     });
 });
@@ -41,6 +42,7 @@ router.post('/addNewCard', (req, res) => {
     flashcardCommands.addNewCard(cardFront, cardBack, deckID, (err, response) => {
         res.json({
             status: 'Your new card has been added!'
+
         });
     });
 });

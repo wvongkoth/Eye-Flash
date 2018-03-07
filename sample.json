@@ -1,0 +1,15 @@
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+var Deck = require('./models/deck.js');
+var FlashCard = require('./models/flashCard.js');
+
+mongoose.connect('mongodb://localhost/tacobell');
+
+FlashCard.insertOne(
+    {
+        front: "hello",
+        back: "back hello",
+        image: [{ word: "I", image: "urls" }, { word: "love", image: "urls" }, { word: "taco", image: "urls" }, { word: "bell", image: "urls" }]
+    }
+           
+)

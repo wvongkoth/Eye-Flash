@@ -11,10 +11,11 @@ var cardSchema = new Schema({
         required: false
     },
     image: {
-        type: String,
+        type: [],
         required: false
     }
 });
 
 var flashCard = mongoose.model('Flashcard', cardSchema);
 module.exports = flashCard;
+

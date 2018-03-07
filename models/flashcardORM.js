@@ -23,10 +23,11 @@ const flashcardCommands = {
             });
         });
     },
-    addNewCard: (cardFront, cardBack, deckId, cb) => {
+    addNewCard: (cardFront, cardBack, deckId, deckImages, cb) => {
         FlashCard.create({
             front: cardFront,
-            back: cardBack
+            back: cardBack,
+            image: deckImages
         }, (err, newCard) => {
             if (err) {
                 return cb(err)
@@ -58,7 +59,11 @@ const flashcardCommands = {
             if (err) {
                 return cb(err)
             }
-            cb(undefined, decks.deckCards[currentCardNum]);
+            var myObject = decks.deckCards[currentCardNum];
+
+            myObject.currentCard = currentCardNum;
+            myObject.totalCards = decks.deckCards.length;
+            cb(undefined, myObject);
         });
     },
     updateCard: (cardId, selectedImage, cb) => {
@@ -88,10 +93,16 @@ const flashcardCommands = {
             }
             cb(undefined, todo);
         });
-    }
+    },
+    
 };
 
-
+function split(phrase) {
+    var wordArray = phrase.split(' ');
+    for (var i = 0; i < wordArray.length; i++) {
+        icon(wordArray[i]);
+    };
+};
 //var flashcardCommands = mongoose.model('Flashcard', cardSchema);
 
 module.exports = {
