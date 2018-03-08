@@ -2,16 +2,18 @@ const mongoose = require('mongoose');
 
 const Deck = require('./deck_model');
 const FlashCard = require('./flashcard_model');
+const Translate = require('./googleTranslate');
 
 mongoose.connect('mongodb://localhost/flashcardApp');
 
 const flashcardCommands = {
-    addNewDeck: (deckName, cardFront, translatedLanguage) => {
-        const myDeck = new Deck({
-            deckName, 
-            translatedLanguage
-        });
-        return myDeck.save().then((document) => {
+    addNewDeck: async (deckName, cardFront, translatedLanguage) => {
+        try {
+            const myDeck = new Deck({
+                deckName, 
+                translatedLanguage
+            });
+            const savedDeck = await myDeck.save();
             const phraseArray = cardFront.toUpperCase().split(" ");
             const cardImages = [];
             phraseArray.map((i) => {
@@ -20,14 +22,19 @@ const flashcardCommands = {
                     image: null
                 });
             });
-            const deckID = document._id;
+            const translatedPhrase = await Translate.translateMe(cardFront, translatedLanguage);
+            const deckID = savedDeck._id;
             const myCard = new FlashCard({
                 deckID,
                 cardFront,
+                cardBack: translatedPhrase.text,
                 cardImages
             });
-            return myCard.save();
-        });
+            return await myCard.save();
+        }
+        catch (e) {
+            console.log(e);
+        }
     },
     addNewCard: (deckID, cardFront) => {
         const phraseArray = cardFront.toUpperCase().split(" ");
@@ -38,9 +45,11 @@ const flashcardCommands = {
                 image: null
             });
         });
+        const translatedPhrase = Translate.translateMe(cardFront, "Spanish");
         const myCard = new FlashCard({
             deckID,
             cardFront,
+            cardBack: translatedPhrase,
             cardImages
         });
         return myCard.save();
