@@ -36,23 +36,29 @@ const flashcardCommands = {
             console.log(e);
         }
     },
-    addNewCard: (deckID, cardFront) => {
-        const phraseArray = cardFront.toUpperCase().split(" ");
-        const cardImages = [];
-        phraseArray.map((i) => {
-            cardImages.push({
-                word: i,
-                image: null
+    addNewCard: async (deckID, cardFront) => {
+        try {
+            const phraseArray = cardFront.toUpperCase().split(" ");
+            const cardImages = [];
+            phraseArray.map((i) => {
+                cardImages.push({
+                    word: i,
+                    image: null
+                });
             });
-        });
-        const translatedPhrase = Translate.translateMe(cardFront, "Spanish");
-        const myCard = new FlashCard({
-            deckID,
-            cardFront,
-            cardBack: translatedPhrase,
-            cardImages
-        });
-        return myCard.save();
+            const userDeck = await Deck.findById(deckID).exec();
+            const translatedPhrase = await Translate.translateMe(cardFront, userDeck.translatedLanguage);
+            const myCard = new FlashCard({
+                deckID,
+                cardFront,
+                cardBack: translatedPhrase.text,
+                cardImages
+            });
+            return myCard.save();
+        }
+        catch (e) {
+            console.log(e);
+        }
     },
     updateImages: (cardID, imageArray) => {
        return FlashCard.findByIdAndUpdate(cardID, {$set: {cardImages: imageArray}}, {new: true})
