@@ -1,99 +1,66 @@
 const mongoose = require('mongoose');
 
-var Deck = require('./deck.js');
-var FlashCard = require('./flashCard.js');
+const Deck = require('./deck_model');
+const FlashCard = require('./flashcard_model');
+
+mongoose.connect('mongodb://localhost/flashcardApp');
 
 const flashcardCommands = {
-    addNewDeck: (deck, cardFront, cardBack, cb) => {
-        Deck.create({
-            deckName: deck
-        }, (err, deck) => {
-            if (err) {
-                return cb(err);
-            }
-            FlashCard.create({
-                front: cardFront,
-                back: cardBack
-            }, (err, card) => {
-                if(err){console.log(err)}
-                card.save();
-                deck.deckCards.push(card);
-                deck.save();
-                cb(undefined, card);
+    addNewDeck: (deckName, cardFront, translatedLanguage) => {
+        const myDeck = new Deck({
+            deckName, 
+            translatedLanguage
+        });
+        return myDeck.save().then((document) => {
+            const phraseArray = cardFront.toUpperCase().split(" ");
+            const cardImages = [];
+            phraseArray.map((i) => {
+                cardImages.push({
+                    word: i,
+                    image: null
+                });
+            });
+            const deckID = document._id;
+            const myCard = new FlashCard({
+                deckID,
+                cardFront,
+                cardImages
+            });
+            return myCard.save();
+        });
+    },
+    addNewCard: (deckID, cardFront) => {
+        const phraseArray = cardFront.toUpperCase().split(" ");
+        const cardImages = [];
+        phraseArray.map((i) => {
+            cardImages.push({
+                word: i,
+                image: null
             });
         });
-    },
-    addNewCard: (cardFront, cardBack, deckId, cb) => {
-        FlashCard.create({
-            front: cardFront,
-            back: cardBack
-        }, (err, newCard) => {
-            if (err) {
-                return cb(err)
-            }
-            Deck.findById({
-                deckID,
-            }, (err, deck) => {
-                if (err) {
-                    return cb(err);
-                }
-                deck.deckCards.push(newCard);
-                deck.save();
-                cb(undefined, deck);
-            })
-        })
-    },
-    getDecks: (cb) => {
-        Deck.find({
-
-        }, (err, decks) => {
-            if (err) {
-                return cb(err)
-            }
-            cb(undefined, decks)
-        })
-    },
-    getCard: (deckId, currentCardNum, cb) => {
-        Deck.findById(deckId, (err, decks) => {
-            if (err) {
-                return cb(err)
-            }
-            cb(undefined, decks.deckCards[currentCardNum]);
+        const myCard = new FlashCard({
+            deckID,
+            cardFront,
+            cardImages
         });
+        return myCard.save();
     },
-    updateCard: (cardId, newFront, newBack, cb) => {
-        FlashCard.findByIdAndUpdate({
-            cardId
-        }, (err, card) => {
-            if (err) {
-                cb(err);
-            }
-            card.front = newFront,
-                card.back = newBack
-            card.save();
-            cb(undefined, card);
-        });
+    updateImages: (cardID, imageArray) => {
+       return FlashCard.findByIdAndUpdate(cardID, {$set: {cardImages: imageArray}}, {new: true})
     },
-    deleteCard: (cardId, cb) => {
-        FlashCard.findByIdAndRemove(cardId, (err, todo) => {
-            if (err) {
-                return cb(err)
-            }
-            cb(undefined, todo)
-        });
+    getAllDecks: () => {
+        return Deck.find();
     },
-    deleteDeck: (deckId, cb) => {
-        Deck.findByIdAndRemove(deckId, (err, todo) => {
-            if (err) {
-                return cb(err)
-            }
-            cb(undefined, todo);
-        });
-    }
+    getAllCards: () => {
+        return FlashCard.find();
+    },
+    getOneCard: (cardID) => {
+        return FlashCard.findById(cardID);
+    },
+    getNextCard: (deckID) => {
+        return FlashCard.find({deckID});
+    },
 };
-
-
-//var flashcardCommands = mongoose.model('Flashcard', cardSchema);
 
 module.exports = {
     flashcardCommands

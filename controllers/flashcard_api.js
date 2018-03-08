@@ -1,87 +1,85 @@
 const express = require('express');
+const {flashcardCommands} = require('../models/flashcardORM')
 var router = express.Router();
 
-const { flashcardCommands } = require('../models/flashcardORM');
-
-router.get('/getAllDecks', (req, res) => {
-    flashcardCommands.getDecks((err, response) => {
-        if (err) {
-            res.status(400).json(err)
-        }
-        return res.json(response);
-    });
-});
-
-router.get('/getCard/:deckID/:currentCard', (req, res) => {
-    // CHANGE TO URL PARAMS
-    var deckID = req.params.deckID;
-    var currentCard = req.params.currentCard;
-
-    flashcardCommands.getCard(deckID, currentCard, (err, response) => {
-        if (err) {
-            res.status(400).json(err);
-        }
-        return res.json(response);
-    });
-});
-
-router.post('/addNewDeck', (req, res) => {
-    const { deckName, cardFront, cardBack } = req.body;
-
-    flashcardCommands.addNewDeck(deckName, cardFront, cardBack, (err, response) => {
-        res.json({
-            status: 'Everything is okay! Deck has been added ' + deckName +" "+cardFront +" "+ cardBack
-        });
-    });
-});
-
-router.post('/addNewCard', (req, res) => {
-    const { cardFront, cardBack, deckID } = req.body;
-
-    flashcardCommands.addNewCard(cardFront, cardBack, deckID, (err, response) => {
-        res.json({
-            status: 'Your new card has been added!'
-        });
-    });
-});
-
-router.post('/updateCard', (req, res) => {
-    const { cardID, cardBack, cardFront } = req.body;
-
-    flashcardCommands.updateCard(cardID, cardFront, cardBack, (err, response) => {
-        res.json({
-            status: 'Your card has been updated!'
-        });
-    });
-});
-
-router.delete('/deleteCard', (req, res) => {
-    var cardID = req.body.cardID;
-
-    flashcardCommands.deleteCard(cardID, (err, response) => {
-        res.json({
-            status: 'Your card has been deleted!'
-        });
-    });
-});
-
-router.delete('/deleteDeck', (req, res) => {
-    var deckID = req.body.deckID;
-
-    flashcardCommands.deleteDeck(deckID, (err, response) => {
-        res.json({
-            status: 'Your deck has been deleted!'
-        });
-    });
-});
-
-router.get('/mylesSucks', (req, res) => {
+router.get('/jsonTest', (req, res) => {
     res.send({
-        "response": "I agree!"
+        status: "Everything is okay!"
     });
 });
 
+router.get('/allDecks', (req, res) => {
+    flashcardCommands.getAllDecks().then((document) => {
+        res.send(document);
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
 
-module.exports = {
-    router
-};
+router.get('/allCards', (req, res) => {
+    flashcardCommands.getAllCards().then((document) => {
+        res.send(document);
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
+
+router.get('/oneCard/:cardID', (req, res) => {
+    const cardID = req.params.cardID;
+    flashcardCommands.getOneCard(cardID).then((document) => {
+        res.send(document);
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
+
+router.get('/nextCard/:deckID/:currentCard', (req, res) => {
+    const { deckID, currentCard } = req.params;
+    flashcardCommands.getNextCard(deckID).then((document) => {
+        const totalCards = document.length - 1;
+        const card = document[parseInt(currentCard)];
+        res.send({
+            totalCards,
+            currentCard: parseInt(currentCard),
+            card
+        });
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
+
+router.post('/jsonTest', (req, res) => {
+    const {myName} = req.body;
+    res.send({
+        status: `Everything is okay, ${myName}`
+    });
+});
+
+router.post('/newDeck', (req, res) => {
+    const {deckName, cardFront, translatedLanguage} = req.body;
+    flashcardCommands.addNewDeck(deckName, cardFront, translatedLanguage).then((document) => {
+        res.send(document)
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
+
+router.post('/newCard', (req, res) => {
+    const {deckID, cardFront} = req.body;
+    flashcardCommands.addNewCard(deckID, cardFront).then((document) => {
+        res.send(document)
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
+
+router.put('/saveImages', (req, res) => {
+    const {cardID, cardImages} = req.body;
+    flashcardCommands.updateImages(cardID, cardImages).then((document) => {
+        res.send(document);
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
+
+module.exports = router
