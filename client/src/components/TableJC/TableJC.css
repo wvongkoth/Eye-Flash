@@ -5,8 +5,8 @@
   	width: 212px;
   	height: 212px!important;
   	line-height: 0;
-  	border: 1px dashed black;
-  	filter: invert(80%);
+  	border: 1px dashed #311152;
+  	filter: invert(30%);
 }
 
 img.imageInGrid {
@@ -22,5 +22,5 @@ img.chosenPic {
   	width: 212px;
   	height: 212px!important;
   	line-height: 0;
-  	filter: invert(100%);
+  	filter: invert(10%);
 }

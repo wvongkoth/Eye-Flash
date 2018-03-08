@@ -1,6 +1,27 @@
-p.centerTextJC {
+.jumboCardFront {
+	background-color: white;
+	width: 90%;
+	height: 575px;
+	margin: 70px 5% 30px 5%;
+    display: inline-table;
+    position: relative;
+}
+
+.jumboCardFront p.centerTextJC {
   text-align:center; 
   vertical-align: middle;
   display: table-cell;
   font-size: 60px;
+}
+
+/*for the corner tab*/
+.cornerTab {
+	fill: #F4976C;
+}
+
+svg {
+	width: 5%;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
