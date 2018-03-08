@@ -1,24 +1,20 @@
 {
-  "name": "flashcardtesting",
+  "name": "project3-rs",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "client": "cd client && yarn start",
-    "server": "nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^3.5.1",
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
-    "google-translate-api": "^2.3.0",
     "method-override": "^2.3.10",
-    "mongoose": "^5.0.7",
+    "mongoose": "^5.0.9",
+    "nodemon": "^1.17.1",
     "path": "^0.12.7"
   }
 }
