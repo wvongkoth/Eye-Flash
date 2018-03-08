@@ -2,7 +2,7 @@ import React from "react";
 import "./BackJC.css";
 
 const BackJC = props => (
-    <div className="jumboCard">
+    <div className="jumboCardBack">
         {props.children}
     </div>
 );

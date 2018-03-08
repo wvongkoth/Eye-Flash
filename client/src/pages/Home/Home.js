@@ -11,7 +11,7 @@ class Home extends Component {
 
 	componentWillMount() {
 		
-		fetch('http://localhost:5000/api/getAllDecks')
+		fetch('http://localhost:5000/api/allDecks')
 			.then(res => {
 				console.log(res);
 				return res.json()

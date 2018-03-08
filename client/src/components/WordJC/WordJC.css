@@ -1,3 +1,5 @@
-.wordJumboCard {
-	padding: 0px 35px 0px 25px;
+.wordFrontJumboCard {
+	padding: 0px 15px 0px 15px;
+	color: #222;
+	font-family: 'Roboto Slab', serif;
 }
