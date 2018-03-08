@@ -11,9 +11,11 @@ class Home extends Component {
 	}
 
 	componentWillMount() {
+
 		axios.get('/api/allDecks')
 			.then((response) => {
 				const decks = response.data;
+
 				console.log(decks);
 				this.setState({ decks })
 			})

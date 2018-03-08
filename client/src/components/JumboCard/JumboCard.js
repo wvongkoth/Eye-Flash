@@ -38,7 +38,7 @@ class JumboCard extends Component {
       <div>
         <ReactCardFlip isFlipped={this.state.isFlipped}>
           <FrontJC key="front">
-            <div className="jumboCardFlip" onClick={this.handleClick}>
+            <div className="jumboCardFlip z-depth-3" onClick={this.handleClick}>
               <p className="centerTextJC">
                 {this.state.words.map((word, i) => (
                   <WordJC
@@ -52,7 +52,7 @@ class JumboCard extends Component {
           </FrontJC>
 
           <BackJC key="back">
-            <div className="jumboCardFlip" onClick={this.handleClick}>
+            <div className="jumboCardFlip z-depth-3" onClick={this.handleClick}>
               <p className="centerTextJC">
                 {this.state.words.map((word, i) => (
                   <WordBJC

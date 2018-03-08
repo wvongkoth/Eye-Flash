@@ -25,7 +25,7 @@ class WordJC extends Component {
 			<span>
 				{ firstClick ? 
 					<TableJC image={"https://iconscout.com/iconscout_logo-1024x1024.png"}/> : 
-					<span className="wordJumboCard" id={this.props.id} onClick={this.clickWord}>{this.props.word}</span>
+					<span className="wordFrontJumboCard" id={this.props.id} onClick={this.clickWord}>{this.props.word}</span>
 				}
 			</span>
 	)}
