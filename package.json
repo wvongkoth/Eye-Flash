@@ -4,14 +4,17 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^3.5.1",
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
+    "google-translate-api": "^2.3.0",
     "method-override": "^2.3.10",
     "mongoose": "^5.0.9",
     "nodemon": "^1.17.1",
