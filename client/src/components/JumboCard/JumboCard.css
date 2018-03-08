@@ -21,7 +21,31 @@ p.centerTextJC {
   font-size: 60px;
 }
 
-.leftPreviousArrow {
+/*class is in the public folder, body tag*/
+div.relativePosition {
+  position: relative;
+}
+
+div.fixedArrows {
+  width: 132px;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  margin-left: -66px;
+}
+
+.arrowLButton,
+.arrowRButton {
+  margin: 5px;
+  /*if image hasnt loaded*/
+  background-color: #311152;
+  /*gradient blurred image for background*/
+  background-image: url("./arrow.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+/*.leftPreviousArrow {
   font-size: 60px;
   vertical-align: middle;
   margin-right: 20px;
@@ -31,4 +55,4 @@ p.centerTextJC {
   font-size: 60px;
   vertical-align: middle;
   margin-left: 20px;
-}
+}*/

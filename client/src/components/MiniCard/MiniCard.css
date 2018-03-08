@@ -1,5 +1,5 @@
 .miniCard {
-	background-color: #4A5FAB;
+	background-color: gray;
 	color: white;
 	display: inline-table;
 	vertical-align: top;
@@ -12,4 +12,8 @@ p.centerTextMC {
 	text-align:center; 
 	vertical-align: middle;
 	display: table-cell;  
+}
+
+.Spanish {
+	background-color: #4A5FAB;
 }

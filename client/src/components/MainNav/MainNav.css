@@ -1,6 +1,11 @@
 /*main navbar*/
 .mainNavBar {
-	background-color: #3A3C3D;
+	/*if image hasnt loaded*/
+	background-color: #311152;
+	/*gradient blurred image for background*/
+	background-image: url("./background.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
 	/*so logo is not on the edge*/
 	padding-left: 20px;
 	height: 72px;
