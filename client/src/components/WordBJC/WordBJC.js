@@ -9,7 +9,7 @@ class WordBJC extends Component {
 
 	render() {
 		return (
-			<span className="wordJumboCard" id={this.props.id}>{this.props.word}</span>
+			<span className="wordsBackJumboCard" id={this.props.id}>{this.props.word}</span>
 	)}
 
 };
