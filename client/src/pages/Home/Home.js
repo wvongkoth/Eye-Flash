@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import MiniCard from "../../components/MiniCard";
 import axios from 'axios';
 import { Route, Redirect } from 'react-router-dom';
-import JumboCard from '../../components/JumboCard';
 
 export default class Home extends Component {
 	constructor(props) {
@@ -16,8 +15,10 @@ export default class Home extends Component {
 	myClick = event => {
 		axios.get("/api/jsonTest").then((response) => {
 			console.log(response.data)
+			localStorage.data = JSON.stringify(response.data,undefined,2)
+		this.setState({ 
+			redirect: '/singlecard' })
 		})
-		this.setState({ redirect: '/singlecard' })
 	}
 
 	componentWillMount() {
