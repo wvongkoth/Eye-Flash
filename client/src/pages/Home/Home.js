@@ -1,51 +1,54 @@
 import React, { Component } from "react";
 import MiniCard from "../../components/MiniCard";
 import axios from 'axios';
+import { Route, Redirect } from 'react-router-dom';
+import JumboCard from '../../components/JumboCard';
 
-class Home extends Component {
+export default class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			decks: []
+			decks: [],
+			redirect: null,
 		};
 	}
 
-	componentWillMount() {
+	myClick = event => {
+		axios.get("/api/jsonTest").then((response) => {
+			console.log(response.data)
+		})
+		this.setState({ redirect: '/singlecard' })
+	}
 
+	componentWillMount() {
 		axios.get('/api/allDecks')
 			.then((response) => {
 				const decks = response.data;
-
-				console.log(decks);
 				this.setState({ decks })
 			})
 			.catch((e) => { 
 				console.log(e);
 			})
-			
-		// fetch('/api/jsonTest')
-		// 	.then(res => {
-		// 		console.log(res);
-		// 	})
-		// 	.then(decks => {
-		// 		console.log(decks);
-		// 		this.setState({ decks })
-		// 	});
 	}
+
 
 	render() {
 		const decks = this.state;
 		return (
+			this.state.redirect?
+				<Redirect to={this.state.redirect} />
+				:
+
 			<div className='container'>
-				{this.state.decks.map(decks => (
-					<MiniCard
-						word={decks.deckName}
-						id={decks.id}
-						translatedLanguage={decks.translatedLanguage}
+				{this.state.decks.map(deck => (
+					<MiniCard 
+						word={deck.deckName}
+						deckID={deck._id}
+						translatedLanguage={deck.translatedLanguage}
+						clickHandler={this.myClick}
 					/>
 				))}
 			</div>
 		)
 	}
 }
-export default Home;
