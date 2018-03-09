@@ -16,11 +16,11 @@ class JumboCard extends Component {
       isFlipped: false,
       //should be reset with incoming array
       words: array,
+      data: []
       //will be set by incoming request
-      deckId: "5aa1d8b0daff2403ac6377eb",
-      currentCard: 0,
-      totalCards: 0,
-      words: ''
+      // deckId: "5aa1d8b0daff2403ac6377eb",
+      // currentCard: 0,
+      // totalCards: 0,
     };
   }
 
@@ -79,23 +79,29 @@ class JumboCard extends Component {
 
   }
 
-  componentDidMount(){
-    this.setState({data: localStorage.data})
+  componentWillMount(){
+
+    const myObj = JSON.parse(localStorage.data)
+    this.setState({myData: myObj})
+
   }
 
   render() {
-    console.log(this.state.data)
+    console.log(this.state.myData.card.cardImages)
+
+    const {data} = this.state
     return (
       <div>
         <ReactCardFlip isFlipped={this.state.isFlipped}>
           <FrontJC key="front">
             <div className="jumboCardFlip z-depth-3" onClick={this.handleClick}>
               <p className="centerTextJC">
-                {this.state.words.map((word, i) => (
+                {this.state.myData.card.cardImages.map((word, i) => (
                   <WordJC
                     id={i}
                     word={word.word}
                     images={word.images}
+                    wordDataId={word.word}
                   /> 
                 ))}
               </p>

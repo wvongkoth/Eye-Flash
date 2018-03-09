@@ -22,24 +22,18 @@ class TableJC extends Component {
             },
         );
       };
-
     render() {
         const {secondClick} = this.state;
+        console.log(this.props)
         return (
             <span>
                 { secondClick ? 
                     <img alt="chosen option" className="chosenPic" src={this.state.clickedSrc} /> : 
                         <span>
                             <div className="threeByThreeIconGrid">
-                                <img alt="option 1" src={this.props.image} onClick={this.clickTable} className="imageInGrid"/>
-                                <img alt="option 2" src={this.props.image} className="imageInGrid" />
-                                <img alt="option 3" src={this.props.image} className="imageInGrid"/>
-                                <img alt="option 4" src={this.props.image} className="imageInGrid"/>
-                                <img alt="option 5" src={this.props.image} className="imageInGrid"/>
-                                <img alt="option 6" src={this.props.image} className="imageInGrid"/>
-                                <img alt="option 7" src={this.props.image} className="imageInGrid"/>
-                                <img alt="option 8" src={this.props.image} className="imageInGrid"/>
-                                <img alt="option 9" src={this.props.image} className="imageInGrid"/>
+                                {this.props.imageArray.images.map((img, i) => (
+                                    <img alt="option 1" src={img} onClick={this.clickTable} className="imageInGrid"/>
+                                )) };
                             </div>
                         </span>
                 }
