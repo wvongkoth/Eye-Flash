@@ -2,15 +2,14 @@ var KEY = "de1fbac9951e420bab8989a8920e813a"
 var SECRET = "fa9ea1be74ab4e23932f00db4bf26fd2"
 var OAuth = require('oauth')
 
-const datamuse = require('datamuse');
 
 var imageResponseArray = []
 
 
 const getImages = {
-    getIcons: (word) => {
+    getIcons: (word, cb) => {
         const imageHolder = [];
-        var oauth = new OAuth.Oauth(
+        var oauth = new OAuth.OAuth(
             'https://api.thenounproject.com',
             'https://api.thenounproject.com',
             KEY,
@@ -25,7 +24,7 @@ const getImages = {
             null,
             (e, data, res) => {
                 if (e) {
-                    return e
+                    return cb(e)
                 }
                 const wordJSONResponse = {
                     "word": word,
@@ -41,7 +40,7 @@ const getImages = {
                         wordJSONResponse.images.push(JSON.parse(data).icons[i].preview_url);
                     }
                 }
-                return wordJSONResponse;
+                cb(undefined, wordJSONResponse);
             }
         )
     }
