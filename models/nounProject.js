@@ -7,44 +7,54 @@ const datamuse = require('datamuse');
 var imageResponseArray = []
 
 
-const getImages = {
-    getIcons: (word) => {
-        const imageHolder = [];
-        var oauth = new OAuth.Oauth(
-            'https://api.thenounproject.com',
-            'https://api.thenounproject.com',
-            KEY,
-            SECRET,
-            '1.0',
-            null,
-            'HMAC-SHA1'
-        )
-        oauth.get(
-            `http://api.thenounproject.com/icons/${word}?limit_to_public_domain=1&limit=9`,
-            null,
-            null,
-            (e, data, res) => {
-                if (e) {
-                    return e
-                }
-                const wordJSONResponse = {
-                    "word": word,
-                    "images": []
-                };
-
-                if (JSON.parse(data).icons.length > 9) {
-                    for (i = 0; i < 9; i++) {
-                        wordJSONResponse.images.push(JSON.parse(data).icons[i].preview_url);
-                    }
-                } else {
-                    for (i = 0; i < JSON.parse(data).icons.length; i++) {
-                        wordJSONResponse.images.push(JSON.parse(data).icons[i].preview_url);
-                    }
-                }
-                return wordJSONResponse;
+const icon(word) {
+    const imageHolder = [];
+    var oauth = new OAuth.OAuth(
+        'https://api.thenounproject.com',
+        'https://api.thenounproject.com',
+        KEY,
+        SECRET,
+        '1.0',
+        null,
+        'HMAC-SHA1'
+    )
+    oauth.get(
+        'http://api.thenounproject.com/icons/' + word + '?limit_to_public_domain=1&limit=9',
+        null,
+        null,
+        function (e, data, res) {
+            if (e) {
+                console.log("MY NAME IS BARRY ALLEN AND I AM THE FASTEST MAN ALIVE")
+                console.error(e)
+                return null
             }
-        )
-    }
-}
+            var wordJSONResponse = {
+                "word": word,
+                "images": []
+            };
 
-module.exports = getImages;
+            if (JSON.parse(data).icons.length > 9) {
+                for (i = 0; i < 9; i++) {
+                    //console.log(JSON.parse(data).icons[i].preview_url);
+
+
+                    wordJSONResponse.images.push(JSON.parse(data).icons[i].preview_url);
+
+                }
+            } else {
+                for (i = 0; i < JSON.parse(data).icons.length; i++) {
+                    //console.log(JSON.parse(data).icons[i].preview_url);
+                    wordJSONResponse.images.push(JSON.parse(data).icons[i].preview_url);
+
+                }
+
+            }
+            imageResponseArray.push(wordJSONResponse)
+            //console.log(wordJSONResponse)
+            console.log(imageResponseArray)
+
+            return imageResponseArray;
+
+        }
+    )
+}
