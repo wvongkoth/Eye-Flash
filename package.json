@@ -12,12 +12,14 @@
   "license": "ISC",
   "dependencies": {
     "concurrently": "^3.5.1",
+    "datamuse": "^1.0.5",
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "google-translate-api": "^2.3.0",
     "method-override": "^2.3.10",
     "mongoose": "^5.0.9",
     "nodemon": "^1.17.1",
+    "oauth": "^0.9.15",
     "path": "^0.12.7"
   }
 }
