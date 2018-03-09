@@ -1,15 +1,26 @@
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-var Deck = require('./models/deck.js');
-var FlashCard = require('./models/flashCard.js');
-
-mongoose.connect('mongodb://localhost/tacobell');
-
-FlashCard.insertOne(
-    {
-        front: "hello",
-        back: "back hello",
-        image: [{ word: "I", image: "urls" }, { word: "love", image: "urls" }, { word: "taco", image: "urls" }, { word: "bell", image: "urls" }]
-    }
-           
-)
+{
+    "deckName":"spanish",
+        "transLanguage":"spanish",
+            "deckCards":[
+                {
+                    "front": "I want taco bell",
+                    "back": "Yo quiero taco bell",
+                    "images": [
+                        {
+                            "word": "I",
+                            "image": "myImage.png"
+                        },
+                        {
+                            "word": "Love",
+                            "image": "myImage.png"
+                        },
+                        {
+                            "word": "Taco",
+                            "image": null
+                        },
+                        {
+                            "word": "Bell",
+                            "image": "myImage.png"
+                        }
+                ]}]
+}
