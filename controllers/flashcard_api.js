@@ -1,5 +1,6 @@
 const express = require('express');
 const {flashcardCommands} = require('../models/flashcardORM')
+const getImages = require('../models/nounProject'); 
 var router = express.Router();
 
 router.get('/jsonTest', (req, res) => {
@@ -47,6 +48,13 @@ router.get('/nextCard/:deckID/:currentCard', (req, res) => {
         res.status(400).send(e);
     });
 });
+
+router.get('/getImages/:word', (req, res) => {
+    const {word} = req.params;
+    getImages.getIcons(word, (error, response) => {
+        res.send(response);
+    });
+})
 
 router.post('/jsonTest', (req, res) => {
     const {myName} = req.body;

@@ -7,6 +7,7 @@ import WordBJC from '../WordBJC';
 import FrontJC from '../FrontJC';
 import BackJC from '../BackJC';
 import array from "../../array.json";
+import axios from "axios";
 
 class JumboCard extends Component {
 
@@ -20,6 +21,10 @@ class JumboCard extends Component {
       deckId: "5aa1d8b0daff2403ac6377eb",
       currentCard: 0,
       totalCards: 0,
+<<<<<<< HEAD
+=======
+      words: ''
+>>>>>>> 78afa95e1c3fc379a35e74baf98b9609967c167d
     };
   }
 
@@ -78,8 +83,12 @@ class JumboCard extends Component {
 
   }
 
-  render() {
+  componentDidMount(){
+    this.setState({data: localStorage.data})
+  }
 
+  render() {
+    console.log(this.state.data)
     return (
       <div>
         <ReactCardFlip isFlipped={this.state.isFlipped}>
