@@ -1,19 +1,78 @@
 .miniCard {
-	background-color: gray;
-	color: white;
+	background-color: white;
+	color: #222;
 	display: inline-table;
 	vertical-align: top;
 	width: 20vw;
 	height: 15vw;
 	margin: 30px 1.25vw 5px 1.25vw;
+	position: relative;
 }
 
 p.centerTextMC {
-	text-align:center; 
-	vertical-align: middle;
+	text-align:right; 
+	font-size: 16px;
+	color: #333;
+	vertical-align: bottom;
 	display: table-cell;  
+	padding: 5px 10px 5px 0px;
+}
+
+/*used on the home page*/
+.addButtonMC {
+	position: absolute;
+	/*display: table-cell;*/
+	top: 50%;
+	left: 50%;
+	margin-left: -28px;
+	margin-top: -28px;
+	background-color: #311152;
+}
+
+/*used on the home page*/
+.miniCardAddBtn {
+	display: inline-table;
+	position: relative;
+	width: 20vw;
+	height: 15vw;
+	margin: 30px 1.25vw 5px 1.25vw;
+	vertical-align: top;
+	border: 2px dashed #666;
+}
+
+/*used on the home page*/
+p.textForAddMC {
+	text-align:center; 
+	font-size: 18px;
+	vertical-align: bottom;
+	display: table-cell;  
+	padding: 5px 0px 10px 10px;
+}
+
+p.translatedLanguageInitials {
+	position: absolute;
+	font-family: 'Roboto Slab', serif;
+	/*display: table-cell;*/
+	font-size: 100px;
+	margin: 0px;
+	bottom: 24px;
+	left: 10px;
+	color: #F4976C;
 }
 
 .Spanish {
 	background-color: #4A5FAB;
+}
+
+/*for the corner tab on the mini card*/
+.cornerTabMC {
+	fill: #F4976C;
+}
+
+/*for the corner tab on the mini card*/
+svg.cornerTabMC {
+	width: 50%;
+	position: absolute;
+	top: 0;
+	right: 0;
 }

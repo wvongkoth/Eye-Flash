@@ -52,10 +52,14 @@ export default class Home extends Component {
 						word={deck.deckName}
 						deckID={deck._id}
 						translatedLanguage={deck.translatedLanguage}
+						initials="Sp"
 						clickHandler={this.myClick}
 					/>
 				))}
-				<a className="btn-floating btn-large waves-effect waves-light #A44DA6" onClick={this.addNewDeckClick}><i className="material-icons">add</i></a>
+				<div className="miniCardAddBtn">
+					<a className="btn-floating waves-effect waves-light #A44DA6 addButtonMC" onClick={this.addNewDeckClick}><i className="material-icons">add</i></a>
+					<p className="textForAddMC"><b>Add card</b><br/>to existing or new deck</p>
+				</div>
 			</div>
 		)
 	}
