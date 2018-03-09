@@ -21,10 +21,7 @@ class JumboCard extends Component {
       deckId: "5aa1d8b0daff2403ac6377eb",
       currentCard: 0,
       totalCards: 0,
-<<<<<<< HEAD
-=======
       words: ''
->>>>>>> 78afa95e1c3fc379a35e74baf98b9609967c167d
     };
   }
 
