@@ -13,8 +13,8 @@ export default class Home extends Component {
 	}
 
 	myClick = event => {
-		axios.get("/api/jsonTest").then((response) => {
-			console.log(response.data)
+		axios.get(`/api/nextCard/${event}/0`).then((response) => {
+			console.log(event)
 			localStorage.data = JSON.stringify(response.data,undefined,2)
 		this.setState({ 
 			redirect: '/singlecard' })
