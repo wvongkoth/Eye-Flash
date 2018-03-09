@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactCardFlip from 'react-card-flip';
+import axios from "axios"
 import "./JumboCard.css";
 import WordJC from '../WordJC';
 import WordBJC from '../WordBJC';
@@ -13,7 +14,12 @@ class JumboCard extends Component {
     super();
     this.state = {
       isFlipped: false,
-      words: array
+      //should be reset with incoming array
+      words: array,
+      //will be set by incoming request
+      deckId: "5aa1d8b0daff2403ac6377eb",
+      currentCard: 0,
+      totalCards: 0,
     };
   }
 
@@ -25,11 +31,51 @@ class JumboCard extends Component {
   rightArrowClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
+
+    const {currentCard} = this.state;
+    const {totalCards} = this.state;
+    const {deckId} = this.state;
+    var nextRightCard = currentCard + 1;
+    console.log(nextRightCard);
+
+    (totalCards == currentCard) ? console.log("no more cards") :
+
+      axios.get(`/api/nextCard/${deckId}/${nextRightCard}`)
+        .then((response) => {
+          console.log(response);
+          const words = response.data;
+
+          console.log(words);
+          this.setState({ words })
+        })
+        .catch((e) => { 
+          console.log(e);
+        });
+
   }
 
   leftArrowClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
+
+    const {currentCard} = this.state;
+    const {totalCards} = this.state;
+    const {deckId} = this.state;
+    var nextLeftCard = {currentCard} + 1;
+
+    (totalCards == 0) ? console.log("no more cards") :
+
+      axios.get(`/api/nextCard/${deckId}/${nextLeftCard}`)
+        .then((response) => {
+          const words = response.data;
+
+          console.log(words);
+          this.setState({ words })
+        })
+        .catch((e) => { 
+          console.log(e);
+        });
+
   }
 
   render() {
