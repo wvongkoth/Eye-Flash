@@ -39,7 +39,6 @@ class JumboCard extends Component {
 
   render() {
     console.log(this.state.data)
-    return(<div></div>)
     return (
       <div>
         <ReactCardFlip isFlipped={this.state.isFlipped}>
