@@ -7,7 +7,6 @@ import WordBJC from '../WordBJC';
 import FrontJC from '../FrontJC';
 import BackJC from '../BackJC';
 import array from "../../array.json";
-import axios from "axios";
 
 class JumboCard extends Component {
 
