@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MiniCard from "../../components/MiniCard";
 import axios from 'axios';
 import { Route, Redirect } from 'react-router-dom';
+import "./Home.css";
 
 export default class Home extends Component {
 	constructor(props) {
@@ -19,6 +20,11 @@ export default class Home extends Component {
 		this.setState({ 
 			redirect: '/singlecard' })
 		})
+	}
+
+	addNewDeckClick = event => {
+		this.setState({ 
+			redirect: '/create' })
 	}
 
 	componentWillMount() {
@@ -49,6 +55,7 @@ export default class Home extends Component {
 						clickHandler={this.myClick}
 					/>
 				))}
+				<a className="btn-floating btn-large waves-effect waves-light #A44DA6" onClick={this.addNewDeckClick}><i className="material-icons">add</i></a>
 			</div>
 		)
 	}

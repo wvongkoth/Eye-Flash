@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { Route, Redirect } from 'react-router-dom';
 import "./CreatePage.css";
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
@@ -8,6 +9,7 @@ export default class CreatePage extends React.Component {
   state = {
     deckName: [],
     cardFront: [],
+    redirect: null
   }
 
   handleDeckChange = event => {
@@ -24,12 +26,14 @@ export default class CreatePage extends React.Component {
     const newDeck = {
       deckName: this.state.deckName,
       cardFront: this.state.cardFront,
+      translatedLanguage: 'Spanish'
     };
     console.log(newDeck)
-    axios.post(`http://localhost:5000/api/addNewDeck`, newDeck)
+    axios.post(`http://localhost:5000/api/newDeck`, newDeck)
       .then(res => {
         console.log(res);
         console.log(res.data);
+        this.setState({redirect: '/singlecard'})
       })
   }
 
@@ -38,6 +42,8 @@ export default class CreatePage extends React.Component {
   	const defaultInitialOption = languageOptions[0];
   	const defaultTranslatedOption = languageOptions[1];
     return (
+    	this.state.redirect?
+			<Redirect to={this.state.redirect} /> :
 	    <div>
 			<div className="row">
 				<div className="col s12 infoLanguageTop">
