@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\client",
+    "\\client\\public",
+    "\\controllers",
+    "\\mock-up\\homepage",
+    "\\mock-up\\images",
+    "\\models"
+  ],
+  "SelectedNode": "\\models\\flashcardORM.js",
+  "PreviewInSolutionExplorer": false
+}
