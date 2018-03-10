@@ -9,7 +9,8 @@ class TableJC extends Component {
         this.state = {
             secondClick: false,
             clickedSrc: "",
-            myData: []
+            myData: [],
+            cardId: ""
         }
     }
 
@@ -21,7 +22,6 @@ class TableJC extends Component {
             secondClick: true, 
             clickedSrc: e.target.src
             }, function () {
-                // console.log(this.state.firstClick + "console");
             },
         );
 
