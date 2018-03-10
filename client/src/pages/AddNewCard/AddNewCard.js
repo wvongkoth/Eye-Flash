@@ -33,7 +33,7 @@ export default class AddNewCard extends React.Component {
 		event.preventDefault();
 		console.log(this.state);
 		const newCard = {
-			deckId: this.state.dataDeckID,
+			deckID: this.state.dataDeckID,
 			cardFront: this.state.cardFront,
 		};
 		const myObj = {
@@ -42,16 +42,13 @@ export default class AddNewCard extends React.Component {
 		console.log(newCard)
 
 		this.postData(newCard);
+		console.log(newCard);
 
 	}
 
-	postData = (newCard) => {
-		axios.post(`http://localhost:5000/api/newCard`, newCard)
-			.then(res => {
-				console.log(res);
-				// console.log(res.data);
-				// localStorage.data = JSON.stringify(res.data,undefined,2)
-				// this.setState({redirect: '/singlecardchooseimage'})
+	postData = newCard => {
+		axios.post('/api/newCard', newCard).then(res => {
+			console.log(res);
 		})
 	}
 
@@ -68,7 +65,7 @@ export default class AddNewCard extends React.Component {
 					<div className="col s12 infoLanguageTop">
 						<div className="card infoLanguageTop">
 							<div className="card-content">
-								<span className="card-title">Deck Name: {this.props.deckName} </span>
+								<span className="card-title">Deck Name: Spanish </span>
 							</div>
 					</div>
 				</div>
