@@ -30,11 +30,7 @@ class TableJC extends Component {
           "cardId": this.props.cardId,
           "word": this.props.wordDataId,
           "image": e.target.src
-<<<<<<< HEAD
         }]
-=======
-        };
->>>>>>> 60185f912153a842f03ff69b3f558a5198e78d19
         console.log(chosenImageInfo);
 
         axios.post('http://localhost:5000/api/saveImages', chosenImageInfo).then(res => {
