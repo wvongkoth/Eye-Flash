@@ -60,8 +60,23 @@ const flashcardCommands = {
             console.log(e);
         }
     },
-    updateImages: (cardID, word, image) => {
-       return FlashCard.update({"_id": cardID, "cardImages.word": word},  {$set: {"cardImages.$.image": image}})
+    updateImages: (cardId, word, image) => {
+        console.log('HEY THIS IS WHERE IA M IN THE ORM')
+        console.log(cardId)
+        console.log(word)
+        console.log(image)
+        // console.log('YOU HIT THIS THING')
+        // console.log(cardId);
+        // console.log(word);
+        // console.log(image);
+        // FlashCard.find({"_id": cardId, "cardImages.word": word }, (err, document) => {
+        //     if (err) {
+                
+        //         console.log(err)
+        //     }
+        //     console.log(document);
+        // }
+       return FlashCard.update({"_id": cardId, "cardImages.word": word},  {$set: {"cardImages.$.image": image}})
     },
     // updateImages: (cardID, word, image) => {
     //     return FlashCard.find({ "_id": cardID, "cardImages.word": word})
