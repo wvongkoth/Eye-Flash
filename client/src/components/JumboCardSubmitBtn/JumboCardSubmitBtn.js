@@ -52,6 +52,7 @@ class JumboCardSubmitBtn extends Component {
   componentWillMount(){
     const myObj = JSON.parse(localStorage.data)
     this.setState({myData: myObj})
+    console.log(this.state.myData)
   }
 
   render() {
@@ -81,12 +82,7 @@ class JumboCardSubmitBtn extends Component {
           <BackJC key="back">
             <div className="jumboCardFlip z-depth-3" onClick={this.handleClick}>
               <p className="centerTextJC">
-                {this.state.words.map((word, i) => (
-                  <WordBJC
-                    id={i}
-                    word={word.bword}
-                  />
-                ))}
+                {this.state.myData.cardBack}
               </p>
             </div>
           </BackJC>

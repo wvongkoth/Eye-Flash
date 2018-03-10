@@ -118,7 +118,7 @@ class JumboCard extends Component {
           <BackJC key="back">
             <div className="jumboCardFlip z-depth-3" onClick={this.handleClick}>
               <p className="centerTextJC">
-                <div>{JSON.stringify(this.state.backData.cardBack)}</div>
+                <div>{JSON.stringify(this.state.myData.card.cardBack)}</div>
               </p>
             </div>
           </BackJC>
