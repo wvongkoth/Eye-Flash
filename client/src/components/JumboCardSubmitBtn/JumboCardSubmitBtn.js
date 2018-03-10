@@ -6,6 +6,7 @@ import WordJC from '../WordJC';
 import WordBJC from '../WordBJC';
 import FrontJC from '../FrontJC';
 import BackJC from '../BackJC';
+import { Route, Redirect } from 'react-router-dom';
 import array from "../../array.json";
 
 class JumboCardSubmitBtn extends Component {
@@ -17,7 +18,8 @@ class JumboCardSubmitBtn extends Component {
       //should be reset with incoming array
       words: array,
       data: [],
-      myData: []
+      myData: [],
+      redirect: null
       //will be set by incoming request
       // deckId: "5aa1d8b0daff2403ac6377eb",
       // currentCard: 0,
@@ -44,7 +46,7 @@ class JumboCardSubmitBtn extends Component {
     //     console.log(res);
     //     this.setState({redirect: '/singlecard'})
     //   })
-    this.setState({redirect: '/home'})
+    this.setState({redirect: '/addnewcard'})
   }
 
   componentWillMount(){
@@ -55,6 +57,9 @@ class JumboCardSubmitBtn extends Component {
   render() {
     const {data} = this.state
     return (
+      this.state.redirect?
+        <Redirect to={this.state.redirect} />
+        :
       <div>
         <ReactCardFlip isFlipped={this.state.isFlipped}>
           <FrontJC key="front">
