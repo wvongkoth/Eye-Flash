@@ -27,7 +27,7 @@ class TableJC extends Component {
 
         //post the information about the chosen image
         var chosenImageInfo = [{
-          "cardId": e.target.cardid,
+          "cardId": this.props.cardId,
           "word": this.props.wordDataId,
           "image": e.target.src
         }];
