@@ -38,7 +38,7 @@ export default class AddNewCard extends React.Component {
 
 		this.postData(newCard);
 		console.log(newCard);
-
+		this.setState({redirect: '/singlecardchooseimage'})
 	}
 
 	postData = newCard => {
