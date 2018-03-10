@@ -107,7 +107,7 @@ class JumboCard extends Component {
                     images={word.images}
                     wordDataId={word.word}
                     cardId={this.state.myData.card._id}
-                  /> 
+                  />
                 ))}
               </p>
             </div>

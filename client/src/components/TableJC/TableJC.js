@@ -26,11 +26,11 @@ class TableJC extends Component {
         );
 
         //post the information about the chosen image
-        var chosenImageInfo = [{
+        var chosenImageInfo = {
           "cardId": this.props.cardId,
           "word": this.props.wordDataId,
           "image": e.target.src
-        }];
+        };
         console.log(chosenImageInfo);
 
         axios.post('http://localhost:5000/api/saveImages', chosenImageInfo).then(res => {
@@ -41,7 +41,7 @@ class TableJC extends Component {
 
     render() {
         const {secondClick} = this.state;
-        // console.log(this.props)
+        console.log(this.props)
         return (
             <span>
                 { secondClick ? 
