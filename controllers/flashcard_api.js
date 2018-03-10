@@ -49,6 +49,14 @@ router.get('/nextCard/:deckID/:currentCard', (req, res) => {
     });
 });
 
+router.get('/mostRecentCard', (req, res) => {
+    flashcardCommands.getMostRecentCard().then((document) => {
+        res.send(document)
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
+
 router.get('/getImages/:word', (req, res) => {
     const {word} = req.params;
     getImages.getIcons(word, (error, response) => {
@@ -82,8 +90,6 @@ router.post('/newCard', (req, res) => {
 });
 
 router.post('/saveImages', (req, res) => {
-    console.log('rOUTE HIT!!!!')
-    console.log(req.body)
     const {cardID, word, image} = req.body;
     flashcardCommands.updateImages(cardID, word, image).then((document) => {
         res.send(document);
