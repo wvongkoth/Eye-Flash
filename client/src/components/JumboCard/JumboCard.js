@@ -15,7 +15,7 @@ class JumboCard extends Component {
     this.state = {
       isFlipped: false,
       //should be reset with incoming array
-      words: array,
+      words: [],
       data: []
       //will be set by incoming request
       // deckId: "5aa1d8b0daff2403ac6377eb",
@@ -82,8 +82,10 @@ class JumboCard extends Component {
   componentWillMount(){
 
     const myObj = JSON.parse(localStorage.data)
-    this.setState({myData: myObj})
-
+    this.setState({
+      myData: myObj,
+      backData: myObj
+    })
   }
 
   render() {
@@ -111,12 +113,7 @@ class JumboCard extends Component {
           <BackJC key="back">
             <div className="jumboCardFlip z-depth-3" onClick={this.handleClick}>
               <p className="centerTextJC">
-                {this.state.words.map((word, i) => (
-                  <WordBJC
-                    id={i}
-                    word={word.bword}
-                  />
-                ))}
+                <div>{JSON.stringify(this.state.backData.card.cardBack)}</div>
               </p>
             </div>
           </BackJC>

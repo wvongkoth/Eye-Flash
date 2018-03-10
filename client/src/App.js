@@ -8,6 +8,7 @@ import UserSignUp from "./pages/UserSignUp";
 import SingleCardView from "./pages/SingleCardView";
 import CreatePage from "./pages/CreatePage";
 import IntroPage from "./pages/IntroPage";
+import AddNewCard from "./pages/AddNewCard";
 
 
 const App = () =>
@@ -19,6 +20,7 @@ const App = () =>
         <Route exact path="/signup" component={UserSignUp} />
         <Route exact path="/singlecard" component={SingleCardView} />
         <Route exact path="/create" component={CreatePage} />
+        <Route exact path="/addnewcard" component={AddNewCard} />
         <Route exact path="/intro" component={IntroPage} />
       </Switch>
     </div>
