@@ -16,14 +16,9 @@ export default class AddNewCard extends React.Component {
 
 	componentDidMount() {
 		const dataDeckID = JSON.parse(localStorage.data)
-		// console.log(JSON.stringify(dataDeckID.card.deckID, undefined, 2))
 		console.log(dataDeckID.card.deckID)
 		this.setState({dataDeckID: dataDeckID.card.deckID})
 	  }
-
-	// handleDeckChange = event => {
-	// 	this.setState({ deckName: event.target.value });
-	// }
 
 	handleCardChange = event => {
 		this.setState({ cardFront: event.target.value });
