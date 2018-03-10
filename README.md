@@ -39,7 +39,7 @@ NU-Bootcamp_Final_Project
 Version 1.0
 
 ## Progammers 
-* [Myles Coleman] (https://github.com/MylesColeman14)
+* [Myles Coleman](https://github.com/MylesColeman14)
 * [Ronak Shah](https://github.com/rshah-nu)
 * [Will Vongkoth](https://github.com/wvongkoth)
 * [Caitlin Cowen](https://github.com/ccowen)
@@ -48,7 +48,7 @@ Version 1.0
 This Project has no license
 
 ## Acknowledgments
-Peter Herman
-Tim Kearney
-Michael Werbowsky
+* Peter Herman 
+* Tim Kearney
+* Michael Werbowsky
 
