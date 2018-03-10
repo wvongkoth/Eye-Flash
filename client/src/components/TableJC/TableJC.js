@@ -7,8 +7,17 @@ class TableJC extends Component {
         super(props);
         this.state = {
             secondClick: false,
-            clickedSrc: ""
+            clickedSrc: "",
+            myData: []
         }
+    }
+    componentWillMount(){
+
+        const myObj = JSON.parse(localStorage.data)
+        this.setState({myData: myObj})
+
+        // console.log(this.state.myData)
+
     }
 
     clickTable = e => {
@@ -18,21 +27,30 @@ class TableJC extends Component {
             secondClick: true, 
             clickedSrc: e.target.src
             }, function () {
-                console.log(this.state.firstClick + "console");
+                // console.log(this.state.firstClick + "console");
             },
         );
-      };
+        console.log(this.myName);
+        // const myImageData = this.state.myData;
+        // console.log(e.target.id)
+        // console.log(myImageData)
+        // myImageData.card.cardImages[e.target.id].image = e.target.src;
+        // console.log(myImageData)
+
+
+    };
+
     render() {
         const {secondClick} = this.state;
-        console.log(this.props)
+        // console.log(this.props)
         return (
             <span>
                 { secondClick ? 
-                    <img alt="chosen option" className="chosenPic" src={this.state.clickedSrc} /> : 
+                    <img id={this.props.id} alt="chosen option" className="chosenPic" src={this.state.clickedSrc} /> : 
                         <span>
-                            <div className="threeByThreeIconGrid">
+                            <div id={this.props.id} className="threeByThreeIconGrid">
                                 {this.props.imageArray.images.map((img, i) => (
-                                    <img alt="option 1" src={img} onClick={this.clickTable} className="imageInGrid"/>
+                                    <img id={this.props.id} alt="option 1" src={img} onClick={this.clickTable} className="imageInGrid"/>
                                 )) };
                             </div>
                         </span>

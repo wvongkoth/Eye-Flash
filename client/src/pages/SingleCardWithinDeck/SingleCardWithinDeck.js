@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import JumboCard from "../../components/JumboCard";
 
-class SingleCardView extends Component {
+class SingleCardWithinDeck extends Component {
 
 	render() {
 		return (
@@ -15,4 +15,4 @@ class SingleCardView extends Component {
 }
 
 
-export default SingleCardView;
+export default SingleCardWithinDeck;

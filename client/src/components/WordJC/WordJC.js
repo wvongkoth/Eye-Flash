@@ -44,8 +44,8 @@ class WordJC extends Component {
 		return (
 			<span>
 				{ firstClick && this.state.imageArray ? 
-					<TableJC imageArray={this.state.imageArray} image={"https://iconscout.com/iconscout_logo-1024x1024.png"}/> : 
-					<span data-word={this.props.wordDataId} className="wordFrontJumboCard" id={this.props.id} onClick={this.clickWord}>{this.props.word}</span>
+					<TableJC id={this.props.id} imageArray={this.state.imageArray} image={"https://iconscout.com/iconscout_logo-1024x1024.png"}/> : 
+					<span wordDataId={this.props.wordDataId} className="wordFrontJumboCard" id={this.props.id} onClick={this.clickWord}>{this.props.word}</span>
 				}
 			</span>
 	)}
