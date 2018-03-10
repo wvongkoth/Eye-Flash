@@ -9,7 +9,8 @@ class TableJC extends Component {
         this.state = {
             secondClick: false,
             clickedSrc: "",
-            myData: []
+            myData: [],
+            cardId: ""
         }
     }
 
@@ -21,13 +22,12 @@ class TableJC extends Component {
             secondClick: true, 
             clickedSrc: e.target.src
             }, function () {
-                // console.log(this.state.firstClick + "console");
             },
         );
 
         //post the information about the chosen image
         var chosenImageInfo = [{
-          "cardId": this.props.cardId,
+          "cardId": e.target.cardid,
           "word": this.props.wordDataId,
           "image": e.target.src
         }];
