@@ -33,7 +33,7 @@ class TableJC extends Component {
         }];
         console.log(chosenImageInfo);
 
-        axios.post('http://localhost:5000/api/saveImages').then(res => {
+        axios.post('http://localhost:5000/api/saveImages', chosenImageInfo).then(res => {
             console.log(res);
         });
 
