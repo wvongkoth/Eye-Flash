@@ -14,6 +14,7 @@ class TableJC extends Component {
     }
 
     clickTable = e => {
+        console.log('I AM ALSO IN HERE, NOT GOOD!');
         e.preventDefault();
         e.stopPropagation();
         this.setState({ 

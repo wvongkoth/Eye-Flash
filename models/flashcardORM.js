@@ -61,6 +61,7 @@ const flashcardCommands = {
         }
     },
     updateImages: (cardID, word, image) => {
+        console.log('I am in here!')
        return FlashCard.update({"_id": cardID, "cardImages.word": word},  {$set: {"cardImages.$.image": image}})
     },
     // updateImages: (cardID, word, image) => {

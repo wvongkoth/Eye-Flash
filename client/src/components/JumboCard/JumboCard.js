@@ -89,7 +89,7 @@ class JumboCard extends Component {
   }
 
   render() {
-    console.log(this.state.myData.card.cardImages)
+    console.log(this.state.myData.cardImages)
 
     const {data} = this.state
     console.log('MYLES SUCKS')
@@ -100,13 +100,13 @@ class JumboCard extends Component {
           <FrontJC key="front">
             <div className="jumboCardFlip z-depth-3" onClick={this.handleClick}>
               <p className="centerTextJC">
-                {this.state.myData.card.cardImages.map((word, i) => (
+                {this.state.myData.cardImages.map((word, i) => (
                   <WordJC
                     id={i}
                     word={word.word}
                     images={word.images}
                     wordDataId={word.word}
-                    cardId={this.state.myData.card._id}
+                    cardId={this.state.myData._id}
                   /> 
                 ))}
               </p>
@@ -116,7 +116,7 @@ class JumboCard extends Component {
           <BackJC key="back">
             <div className="jumboCardFlip z-depth-3" onClick={this.handleClick}>
               <p className="centerTextJC">
-                <div>{JSON.stringify(this.state.backData.card.cardBack)}</div>
+                <div>{JSON.stringify(this.state.backData.cardBack)}</div>
               </p>
             </div>
           </BackJC>

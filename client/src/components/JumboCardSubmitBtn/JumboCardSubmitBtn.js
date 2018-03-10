@@ -16,7 +16,8 @@ class JumboCardSubmitBtn extends Component {
       isFlipped: false,
       //should be reset with incoming array
       words: array,
-      data: []
+      data: [],
+      myData: []
       //will be set by incoming request
       // deckId: "5aa1d8b0daff2403ac6377eb",
       // currentCard: 0,
@@ -31,32 +32,27 @@ class JumboCardSubmitBtn extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
-    const newDeck = {
-      deckName: this.state.deckName,
-      cardFront: this.state.cardFront,
-      translatedLanguage: 'Spanish'
-    };
-    console.log(newDeck)
-    axios.post(`http://localhost:5000/api/newDeck`, newDeck)
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-        this.setState({redirect: '/singlecard'})
-      })
+    // console.log('YES I GOT THIS FAR');
+    // const newDeck = {
+    //   deckName: this.state.deckName,
+    //   cardFront: this.state.cardFront,
+    //   translatedLanguage: 'Spanish'
+    // };
+    // console.log(newDeck)
+    // axios.post(`http://localhost:5000/api/newDeck`, newDeck)
+    //   .then(res => {
+    //     console.log(res);
+    //     this.setState({redirect: '/singlecard'})
+    //   })
+    this.setState({redirect: '/home'})
   }
 
   componentWillMount(){
-
     const myObj = JSON.parse(localStorage.data)
-    console.log(myObj)
     this.setState({myData: myObj})
-    console.log(myObj)
-
   }
 
   render() {
-
     const {data} = this.state
     return (
       <div>
@@ -64,7 +60,7 @@ class JumboCardSubmitBtn extends Component {
           <FrontJC key="front">
             <div className="jumboCardFlip z-depth-3" onClick={this.handleClick}>
               <p className="centerTextJC">
-                {this.state.myData.card.cardImages.map((word, i) => (
+                {this.state.myData.cardImages.map((word, i) => (
                   <WordJC
                     id={i}
                     word={word.word}
