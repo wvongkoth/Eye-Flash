@@ -71,6 +71,7 @@ class JumboCardSubmitBtn extends Component {
                     word={word.word}
                     images={word.images}
                     wordDataId={word.word}
+                    cardId={this.state.myData._id}
                   /> 
                 ))}
               </p>

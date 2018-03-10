@@ -100,14 +100,16 @@ class JumboCard extends Component {
           <FrontJC key="front">
             <div className="jumboCardFlip z-depth-3" onClick={this.handleClick}>
               <p className="centerTextJC">
-                {this.state.myData.cardImages.map((word, i) => (
-                  <WordJC
-                    id={i}
-                    word={word.word}
-                    images={word.images}
-                    wordDataId={word.word}
-                    cardId={this.state.myData._id}
-                  /> 
+                {this.state.myData.card.cardImages.map((word, i) => (
+                  (word.image == null) ?
+                    <WordJC
+                      id={i}
+                      word={word.word}
+                      images={word.images}
+                      wordDataId={word.word}
+                      cardId={this.state.myData.card._id}
+                    /> :
+                    <img cardId={this.state.myData.card._id} wordDataId={word.word} alt="chosen option" className="chosenPic" src={word.image} />
                 ))}
               </p>
             </div>

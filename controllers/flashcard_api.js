@@ -90,8 +90,12 @@ router.post('/newCard', (req, res) => {
 });
 
 router.post('/saveImages', (req, res) => {
-    const {cardID, word, image} = req.body;
-    flashcardCommands.updateImages(cardID, word, image).then((document) => {
+    const {cardId, word, image} = req.body;
+    // console.log('tHIS SHOULD BE A CARD ID: ')
+    // console.log(cardId);
+    console.log(req.body);
+    // flashcardCommands.updateImages(cardId, word, image);
+    flashcardCommands.updateImages(cardId, word, image).then((document) => {
         res.send(document);
     }, (e) => {
         res.status(400).send(e);
