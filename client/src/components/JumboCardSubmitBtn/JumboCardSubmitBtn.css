@@ -1,0 +1,33 @@
+/*so that the clickable area fills the jumbocard*/
+.jumboCardFlip {
+  display: inline-table;
+  width: 100%;
+  height: 100%;
+}
+
+/*===================================*/
+/*arrow buttons*/
+
+/*class is in the public folder, body tag*/
+div.relativePosition {
+  position: relative;
+}
+
+div.fixedSubmitBtn {
+  width: 132px;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  margin-left: -66px;
+}
+
+.arrowLButton,
+.arrowRButton {
+  margin: 5px;
+  /*if image hasnt loaded*/
+  background-color: #311152;
+  /*gradient blurred image for background*/
+  background-image: url("./arrow.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}

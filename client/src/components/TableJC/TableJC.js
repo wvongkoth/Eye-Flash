@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import axios from "axios";
 import "./TableJC.css";
 
 class TableJC extends Component {
@@ -7,7 +8,8 @@ class TableJC extends Component {
         super(props);
         this.state = {
             secondClick: false,
-            clickedSrc: ""
+            clickedSrc: "",
+            myData: []
         }
     }
 
@@ -18,21 +20,35 @@ class TableJC extends Component {
             secondClick: true, 
             clickedSrc: e.target.src
             }, function () {
-                console.log(this.state.firstClick + "console");
+                // console.log(this.state.firstClick + "console");
             },
         );
-      };
+
+        //post the information about the chosen image
+        var chosenImageInfo = [{
+          "cardId": this.props.cardId,
+          "word": this.props.wordDataId,
+          "image": e.target.src
+        }];
+        console.log(chosenImageInfo);
+
+        axios.post('http://localhost:5000/api/saveImages').then(res => {
+            console.log(res);
+        });
+
+    };
+
     render() {
         const {secondClick} = this.state;
-        console.log(this.props)
+        // console.log(this.props)
         return (
             <span>
                 { secondClick ? 
-                    <img alt="chosen option" className="chosenPic" src={this.state.clickedSrc} /> : 
+                    <img cardId={this.props.cardId} wordDataId={this.props.wordDataId} alt="chosen option" className="chosenPic" src={this.state.clickedSrc} /> : 
                         <span>
-                            <div className="threeByThreeIconGrid">
+                            <div cardId={this.props.cardId} wordDataId={this.props.wordDataId} className="threeByThreeIconGrid">
                                 {this.props.imageArray.images.map((img, i) => (
-                                    <img alt="option 1" src={img} onClick={this.clickTable} className="imageInGrid"/>
+                                    <img cardId={this.props.cardId} wordDataId={this.props.wordDataId} alt="option 1" src={img} onClick={this.clickTable} className="imageInGrid"/>
                                 )) };
                             </div>
                         </span>

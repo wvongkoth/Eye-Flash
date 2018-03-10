@@ -25,14 +25,12 @@ class WordJC extends Component {
 	}
 
     clickWord = (e) => {
-    	console.log(this.props.wordDataId);
   		e.stopPropagation();
-  		console.log(e);
 	    this.setState({ firstClick: true }, function () {
 	        console.log(this.state.firstClick + "console");
 	        },
 	    );
-	    //this.getImages(this.props.wordDataId);
+	 
 	};
 
 	componentDidMount() {
@@ -44,8 +42,8 @@ class WordJC extends Component {
 		return (
 			<span>
 				{ firstClick && this.state.imageArray ? 
-					<TableJC imageArray={this.state.imageArray} image={"https://iconscout.com/iconscout_logo-1024x1024.png"}/> : 
-					<span data-word={this.props.wordDataId} className="wordFrontJumboCard" id={this.props.id} onClick={this.clickWord}>{this.props.word}</span>
+					<TableJC cardId={this.props.cardId} wordDataId={this.props.wordDataId} imageArray={this.state.imageArray} image={"https://iconscout.com/iconscout_logo-1024x1024.png"}/> : 
+					<span cardId={this.props.cardId} wordDataId={this.props.wordDataId} className="wordFrontJumboCard" id={this.props.id} onClick={this.clickWord}>{this.props.word}</span>
 				}
 			</span>
 	)}
