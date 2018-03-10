@@ -44,7 +44,7 @@ class JumboCard extends Component {
       axios.get(`/api/nextCard/${deckId}/${nextRightCard}`)
         .then((response) => {
           console.log(response);
-          const words = response.data;
+          const words = response.data
 
           console.log(words);
           this.setState({ words })
