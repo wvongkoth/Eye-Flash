@@ -18,7 +18,7 @@ export default class Home extends Component {
 			console.log(event)
 			localStorage.data = JSON.stringify(response.data,undefined,2)
 		this.setState({ 
-			redirect: '/singlecard' })
+			redirect: '/singlecardwithindeck' })
 		})
 	}
 
