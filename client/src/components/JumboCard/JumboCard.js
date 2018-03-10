@@ -32,22 +32,22 @@ class JumboCard extends Component {
   rightArrowClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    console.log('YOU CLICKED RIGHT ARROW');
+    console.log(this.state.myData.card.deckID)
+    const {currentCard} = this.state.myData;
+    const {totalCards} = this.state.myData;
+    const {deckID} = this.state.myData.card;
 
-    const {currentCard} = this.state;
-    const {totalCards} = this.state;
-    const {deckId} = this.state;
     var nextRightCard = currentCard + 1;
-    console.log(nextRightCard);
 
     (totalCards == currentCard) ? console.log("no more cards") :
 
-      axios.get(`/api/nextCard/${deckId}/${nextRightCard}`)
+      axios.get(`/api/nextCard/${deckID}/${nextRightCard}`)
         .then((response) => {
-          console.log(response);
+          this.setState({response})
           const words = response.data
-
+          this.setState({myData: words});
           console.log(words);
-          this.setState({ words })
         })
         .catch((e) => { 
           console.log(e);
@@ -58,22 +58,25 @@ class JumboCard extends Component {
   leftArrowClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    console.log('YOU CLICKED LEFT ARROW!');
+    console.log(this.state.myData.card.deckID)
+    const { currentCard } = this.state.myData;
+    const { totalCards } = this.state.myData;
+    const { deckID } = this.state.myData.card;
 
-    const {currentCard} = this.state;
-    const {totalCards} = this.state;
-    const {deckId} = this.state;
-    var nextLeftCard = {currentCard} + 1;
+    var nextRightCard = currentCard - 1;
 
-    (totalCards == 0) ? console.log("no more cards") :
 
-      axios.get(`/api/nextCard/${deckId}/${nextLeftCard}`)
+      axios.get(`/api/nextCard/${deckID}/${nextRightCard}`)
         .then((response) => {
-          const words = response.data;
-
+          console.log('I AM INSIDE AXIOS')
+          console.log(response);
+          this.setState({ response })
+          const words = response.data
+          this.setState({ myData: words });
           console.log(words);
-          this.setState({ words })
         })
-        .catch((e) => { 
+        .catch((e) => {
           console.log(e);
         });
 
