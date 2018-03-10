@@ -34,7 +34,7 @@ export default class CreatePage extends React.Component {
         console.log(res);
         console.log(res.data);
         localStorage.data = JSON.stringify(res.data,undefined,2)
-        this.setState({redirect: '/singlecard'})
+        this.setState({redirect: '/singlecardchooseimage'})
       })
   }
 
