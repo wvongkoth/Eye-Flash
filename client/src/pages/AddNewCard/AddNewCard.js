@@ -43,7 +43,7 @@ export default class AddNewCard extends React.Component {
 
 	postData = newCard => {
 		axios.post('/api/newCard', newCard).then(res => {
-			console.log(res);
+			localStorage.data = JSON.stringify(res.data,undefined,2)
 		})
 	}
 
