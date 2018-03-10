@@ -10,7 +10,7 @@ const MainNav = props => (
 		    <ul className="hide-on-med-and-down mainNavBarList">
 		      <li className="listLeft"><a><i className="material-icons left">search</i>Browse</a></li>
 		      <li className="listLeft"><a><i className="material-icons home left">view_module</i>My Decks</a></li>
-		      <li className="listRight"><a href="/"><i className="material-icons right">home</i>Home</a></li>
+		      <li className="listRight"><a href="/"><i className="material-icons left">home</i>Home</a></li>
 		      <li className="listRight"><a className="dropdown-button" href="#!" data-activates="dropdown1">Other Settings<i className="material-icons right">arrow_drop_down</i></a></li>
 		      <li className="listRight">Main Language: <span id="mainLanguage">English</span></li>
 		    </ul>
