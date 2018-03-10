@@ -34,3 +34,21 @@ npm install
 * [dotenv] (https://www.npmjs.com/package/dotenv) - Used for pusing to heroku
 * [Heroku] (https://dashboard.heroku.com/) - Used for Hosting the site 
 NU-Bootcamp_Final_Project
+
+## Version
+Version 1.0
+
+## Progammers 
+* [Myles Coleman] (https://github.com/MylesColeman14)
+* [Ronak Shah](https://github.com/rshah-nu)
+* [Will Vongkoth](https://github.com/wvongkoth)
+* [Caitlin Cowen](https://github.com/ccowen)
+
+## License
+This Project has no license
+
+## Acknowledgments
+Peter Herman
+Tim Kearney
+Michael Werbowsky
+
