@@ -49,13 +49,13 @@ class JumboCardSubmitBtn extends Component {
   componentWillMount(){
 
     const myObj = JSON.parse(localStorage.data)
+    console.log(myObj)
     this.setState({myData: myObj})
     console.log(myObj)
 
   }
 
   render() {
-    console.log(this.state.myData.card.cardImages)
 
     const {data} = this.state
     return (

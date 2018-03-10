@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import axios from "axios";
 import "./TableJC.css";
 
 class TableJC extends Component {
@@ -11,14 +12,6 @@ class TableJC extends Component {
             myData: []
         }
     }
-    componentWillMount(){
-
-        const myObj = JSON.parse(localStorage.data)
-        this.setState({myData: myObj})
-
-        // console.log(this.state.myData)
-
-    }
 
     clickTable = e => {
         e.preventDefault();
@@ -30,13 +23,18 @@ class TableJC extends Component {
                 // console.log(this.state.firstClick + "console");
             },
         );
-        console.log(this.myName);
-        // const myImageData = this.state.myData;
-        // console.log(e.target.id)
-        // console.log(myImageData)
-        // myImageData.card.cardImages[e.target.id].image = e.target.src;
-        // console.log(myImageData)
 
+        //post the information about the chosen image
+        var chosenImageInfo = [{
+          "cardId": this.props.cardId,
+          "word": this.props.wordDataId,
+          "image": e.target.src
+        }];
+        console.log(chosenImageInfo);
+
+        axios.post('http://localhost:5000/api/saveImages').then(res => {
+            console.log(res);
+        });
 
     };
 
@@ -46,11 +44,11 @@ class TableJC extends Component {
         return (
             <span>
                 { secondClick ? 
-                    <img id={this.props.id} alt="chosen option" className="chosenPic" src={this.state.clickedSrc} /> : 
+                    <img cardId={this.props.cardId} wordDataId={this.props.wordDataId} alt="chosen option" className="chosenPic" src={this.state.clickedSrc} /> : 
                         <span>
-                            <div id={this.props.id} className="threeByThreeIconGrid">
+                            <div cardId={this.props.cardId} wordDataId={this.props.wordDataId} className="threeByThreeIconGrid">
                                 {this.props.imageArray.images.map((img, i) => (
-                                    <img id={this.props.id} alt="option 1" src={img} onClick={this.clickTable} className="imageInGrid"/>
+                                    <img cardId={this.props.cardId} wordDataId={this.props.wordDataId} alt="option 1" src={img} onClick={this.clickTable} className="imageInGrid"/>
                                 )) };
                             </div>
                         </span>

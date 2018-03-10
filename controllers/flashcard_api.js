@@ -81,9 +81,11 @@ router.post('/newCard', (req, res) => {
     });
 });
 
-router.put('/saveImages', (req, res) => {
-    const {cardID, cardImages} = req.body;
-    flashcardCommands.updateImages(cardID, cardImages).then((document) => {
+router.post('/saveImages', (req, res) => {
+    console.log('rOUTE HIT!!!!')
+    console.log('req.body')
+    const {cardID, word, image} = req.body;
+    flashcardCommands.updateImages(cardID, word, image).then((document) => {
         res.send(document);
     }, (e) => {
         res.status(400).send(e);

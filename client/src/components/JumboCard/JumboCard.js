@@ -90,6 +90,8 @@ class JumboCard extends Component {
     console.log(this.state.myData.card.cardImages)
 
     const {data} = this.state
+    console.log('MYLES SUCKS')
+    console.log(this.state.myData);
     return (
       <div>
         <ReactCardFlip isFlipped={this.state.isFlipped}>
@@ -102,6 +104,7 @@ class JumboCard extends Component {
                     word={word.word}
                     images={word.images}
                     wordDataId={word.word}
+                    cardId={this.state.myData.card._id}
                   /> 
                 ))}
               </p>

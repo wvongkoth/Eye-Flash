@@ -60,9 +60,12 @@ const flashcardCommands = {
             console.log(e);
         }
     },
-    updateImages: (cardID, imageArray) => {
-       return FlashCard.findByIdAndUpdate(cardID, {$set: {cardImages: imageArray}}, {new: true})
+    updateImages: (cardID, word, image) => {
+       return FlashCard.update({"_id": cardID, "cardImages.word": word},  {$set: {"cardImages.$.image": image}})
     },
+    // updateImages: (cardID, word, image) => {
+    //     return FlashCard.find({ "_id": cardID, "cardImages.word": word})
+    // },
     getAllDecks: () => {
         return Deck.find();
     },
