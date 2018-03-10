@@ -50,7 +50,7 @@ class TableJC extends Component {
                             <div cardId={this.props.cardId} wordDataId={this.props.wordDataId} className="threeByThreeIconGrid">
                                 {this.props.imageArray.images.map((img, i) => (
                                     <img cardId={this.props.cardId} wordDataId={this.props.wordDataId} alt="option 1" src={img} onClick={this.clickTable} className="imageInGrid"/>
-                                )) };
+                                )) }
                             </div>
                         </span>
                 }
